@@ -35,9 +35,9 @@ const Welcome = () => {
       <Link className='welcome-login-link' to='/'>
         <button className='welcome-login'>więcej</button>
       </Link>
-      <img src={virus} alt='bacteria-cell' />
-      <img src={virus} alt='bacteria-cell' />
-      <img src={virus} alt='bacteria-cell' />
+      <img className='welcome-virus-svg' src={virus} alt='bacteria-cell' />
+      <img className='welcome-virus-svg' src={virus} alt='bacteria-cell' />
+      <img className='welcome-virus-svg' src={virus} alt='bacteria-cell' />
     </div>
   );
 };

@@ -1,4 +1,5 @@
 .welcome-container {
+    height: 100vh;
     background: #655BE2;
     color: #ffffff;
     text-align: center;
@@ -88,4 +89,32 @@
         }
     }
 
+    .welcome-virus-svg {
+        width: 48px;
+        height: 48px;
+        position: relative;
+
+        &:nth-of-type(1) {
+            bottom: 30px;
+            right: 20px;
+            position: absolute;
+            transform: rotate(30deg)
+        }
+
+        &:nth-of-type(2) {
+            bottom: -16px;
+            right: 50px;
+            position: absolute;
+            transform: rotate(12deg)
+        }
+
+        &:nth-of-type(3) {
+            width: 70px;
+            height: 70px;
+            bottom: 0;
+            left: -20px;
+            position: absolute;
+            transform: rotate(12deg)
+        }
+    }
 }
