@@ -1,120 +1,120 @@
 .welcome-container {
-    height: 100vh;
-    background: #655BE2;
-    color: #ffffff;
-    text-align: center;
-    align-items: center;
+  height: 100vh;
+  background: #655be2;
+  color: #ffffff;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  .welcome-logo {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 45px;
+    margin-top: 15px;
+    letter-spacing: 1px;
+
+    .welcome-logo__svg {
+      img {
+        height: 35px;
+        width: 35px;
+        filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(284deg)
+          brightness(106%) contrast(101%);
+      }
+    }
+  }
+
+  .welcome-name {
+    text-transform: uppercase;
+    font-weight: lighter;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+
+  .welcome-images-container {
+    width: 320px;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    margin-top: 15px;
 
-    .welcome-logo {
-        text-transform: uppercase;
-        font-weight: bold;
-        font-size: 45px;
-        margin-top: 15px;
-        letter-spacing: 1px;
-
-        .welcome-logo__svg {
-            img {
-                height: 35px;
-                width: 35px;
-                filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(284deg) brightness(106%) contrast(101%);
-            }
-        }
+    .one {
+      margin-left: -25px;
     }
 
-    .welcome-name {
-        text-transform: uppercase;
-        font-weight: lighter;
-        font-size: 16px;
-        letter-spacing: 1px;
+    .doctor-back {
+      width: 200px;
+      height: 200px;
+      z-index: 1;
     }
 
-    .welcome-images-container {
-        width: 320px;
-        display: flex;
-        justify-content: space-between;
-        position: relative;
-        margin-top: 15px;
+    .doctor-front {
+      height: auto;
+      width: 198px;
+      z-index: 2;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
 
-        .one {
-            margin-left: -25px;
-        }
+  .welcome-description {
+    margin-top: 15px;
+    width: 220px;
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
 
-        .doctor-back {
-            width: 200px;
-            height: 200px;
-            z-index: 1;
-        }
+  .welcome-description__secondary {
+    width: 200px;
+    margin-top: 10px;
+    letter-spacing: 0.5px;
+    font-weight: lighter;
+    font-size: 14px;
+  }
 
-        .doctor-front {
-            height: auto;
-            width: 198px;
-            z-index: 2;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
+  .welcome-login-link {
+    margin-top: 25px;
+
+    .welcome-login {
+      width: 200px;
+      height: 40px;
+      background: #c8cff3;
+      border-radius: 25px;
+      text-transform: uppercase;
+      font-size: 16px;
+      letter-spacing: 1px;
+      color: white;
+    }
+  }
+
+  .welcome-virus-svg {
+    width: 48px;
+    height: 48px;
+    position: relative;
+
+    &:nth-of-type(1) {
+      bottom: 30px;
+      right: 20px;
+      position: absolute;
+      transform: rotate(30deg);
     }
 
-    .welcome-description {
-        margin-top: 15px;
-        width: 220px;
-        font-size: 18px;
-        letter-spacing: 1px;
+    &:nth-of-type(2) {
+      bottom: -16px;
+      right: 50px;
+      position: absolute;
+      transform: rotate(12deg);
     }
 
-    .welcome-description__secondary {
-        width: 200px;
-        margin-top: 10px;
-        letter-spacing: 0.5px;
-        font-weight: lighter;
-        font-size: 14px;
-
+    &:nth-of-type(3) {
+      width: 70px;
+      height: 70px;
+      bottom: 0;
+      left: -20px;
+      position: absolute;
+      transform: rotate(12deg);
     }
-
-    .welcome-login-link {
-        margin-top: 25px;
-
-        .welcome-login {
-            width: 200px;
-            height: 40px;
-            background: #C8CFF3;
-            border-radius: 25px;
-            text-transform: uppercase;
-            font-size: 16px;
-            letter-spacing: 1px;
-            color: white;
-        }
-    }
-
-    .welcome-virus-svg {
-        width: 48px;
-        height: 48px;
-        position: relative;
-
-        &:nth-of-type(1) {
-            bottom: 30px;
-            right: 20px;
-            position: absolute;
-            transform: rotate(30deg)
-        }
-
-        &:nth-of-type(2) {
-            bottom: -16px;
-            right: 50px;
-            position: absolute;
-            transform: rotate(12deg)
-        }
-
-        &:nth-of-type(3) {
-            width: 70px;
-            height: 70px;
-            bottom: 0;
-            left: -20px;
-            position: absolute;
-            transform: rotate(12deg)
-        }
-    }
+  }
 }

@@ -14,7 +14,7 @@ import "./App.css";
 
 function App() {
   //fake auth
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(true);
   return (
     <div className='App'>
       <Router>
