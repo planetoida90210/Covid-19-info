@@ -1,28 +1,14 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 
 const GlobalCases = () => {
-  const [latest, setLatest] = useState("");
-  useEffect(() => {
-    axios
-      .get("https://corona.lmao.ninja/v2/all")
-      .then((res) => {
-        setLatest(res.data);
-        console.log(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
   return (
     <div classame='global-cases-container'>
       <h5 className='global-cases_description'>zakażonych</h5>
-      <p className='global-cases_counter'>{latest.cases}</p>
+      <p className='global-cases_counter'></p>
       <h5 className='global-cases_description'>wyzdrowiało</h5>
-      <p className='global-cases_counter'>{latest.recovered}</p>
+      <p className='global-cases_counter'></p>
       <h5 className='global-cases_description'>umarło</h5>
-      <p className='global-cases_counter'>{latest.deaths}</p>
+      <p className='global-cases_counter'></p>
     </div>
   );
 };
