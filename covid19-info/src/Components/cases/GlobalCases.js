@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Spinner from "../layout/Spinner";
 import { fetchGlobalData } from "../../api";
 
 const GlobalCases = () => {
@@ -11,6 +12,9 @@ const GlobalCases = () => {
     fetchAPI();
   }, []);
   const { active, deaths, recovered, updated } = globalData;
+  if (!updated) {
+    return <Spinner />;
+  }
   return (
     <div classame='global-cases-container'>
       <h5 className='global-cases_description'>zakażonych</h5>
