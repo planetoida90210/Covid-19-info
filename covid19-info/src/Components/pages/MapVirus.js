@@ -1,8 +1,7 @@
 import React from "react";
 import GlobalCases from "../cases/GlobalCases";
 
-const MapVirus = ({ globalData }) => {
-  console.log(globalData);
+const MapVirus = () => {
   return (
     <div>
       map virus
