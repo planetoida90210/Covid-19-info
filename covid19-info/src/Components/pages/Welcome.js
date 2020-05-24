@@ -4,7 +4,7 @@ import logo from "../../assets/images/Welcome/main-logo.svg";
 import doctor from "../../assets/images/Welcome/doctor-mask.svg";
 import doctorMain from "../../assets/images/Welcome/doctor-gloves.svg";
 import virus from "../../assets/images/Welcome/bacteria-cell-single.svg";
-const Welcome = () => {
+const Welcome = ({ setIsActive, isActive }) => {
   return (
     <div className='welcome-container'>
       <h1 className='welcome-logo'>
@@ -33,7 +33,12 @@ const Welcome = () => {
         SARS-CoV-2
       </p>
       <Link className='welcome-login-link' to='/'>
-        <button className='welcome-login'>więcej</button>
+        <button
+          className='welcome-login'
+          onClick={() => setIsActive(!isActive)}
+        >
+          więcej
+        </button>
       </Link>
       <img className='welcome-virus-svg' src={virus} alt='bacteria-cell' />
       <img className='welcome-virus-svg' src={virus} alt='bacteria-cell' />

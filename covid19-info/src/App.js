@@ -14,7 +14,7 @@ import "./App.css";
 
 function App() {
   //fake auth
-  const [isActive, setIsActive] = useState(true);
+  const [isActive, setIsActive] = useState(false);
   return (
     <div className='App'>
       <Router>
@@ -31,7 +31,16 @@ function App() {
         ) : (
           <>
             <Redirect from={"/"} to={"/welcome"} />
-            <Route path={"/welcome"} component={Welcome} />
+            <Route
+              path={"/welcome"}
+              component={(props) => (
+                <Welcome
+                  {...props}
+                  setIsActive={setIsActive}
+                  isActive={isActive}
+                />
+              )}
+            />
           </>
         )}
       </Router>
