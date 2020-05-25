@@ -14,19 +14,19 @@ import "./App.css";
 
 function App() {
   //fake auth
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(true);
   return (
     <div className='App'>
       <Router>
         {isActive ? (
           <>
-            <Navbar />
             <Switch>
               <Redirect from='/welcome' to='/' />
               <Route exact path={"/"} component={Home} />
               <Route path={"/map"} component={MapVirus} />
               <Route path={"/activities"} compoenent={Acitvities} />
             </Switch>
+            <Navbar />
           </>
         ) : (
           <>
