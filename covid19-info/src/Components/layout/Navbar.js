@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink as Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   const navLinks = [
@@ -15,7 +15,7 @@ const Navbar = () => {
       logo: "fas fa-globe",
     },
     {
-      text: "aktywność",
+      text: "sport",
       path: "/activities",
       logo: "fas fa-heartbeat",
     },
@@ -25,18 +25,18 @@ const Navbar = () => {
       <nav className='navbar-container'>
         <ul className='navbar-links'>
           {navLinks.map((navLink) => (
-            <Link
+            <NavLink
               exact
               className='navbar-route'
-              activeClassName='clicked-route'
+              activeClassName='navbar-route-clicked'
               to={navLink.path}
               key={navLink.text}
             >
-              <li className='clicked-route-text'>
+              <li className='navbar-section-container'>
                 <i className={navLink.logo} />
-                {navLink.text}
+                <p className='navbar-section-name'>{navLink.text}</p>
               </li>
-            </Link>
+            </NavLink>
           ))}
         </ul>
       </nav>

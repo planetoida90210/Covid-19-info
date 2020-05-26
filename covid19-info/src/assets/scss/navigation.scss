@@ -2,16 +2,57 @@
     .navbar-container {
         position: fixed;
         bottom: 0;
-        width: 100vw;
         height: 50px;
+        width: 100vw;
         background: #D6D3FC;
         border-top-left-radius: 30px;
         border-top-right-radius: 30px;
+        text-transform: capitalize;
 
         .navbar-links {
-            display: flex;
-            flex-direction: row;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
             font-size: 22px;
+            line-height: 22px;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+
+
+            .navbar-route {
+                text-decoration: none;
+                list-style: none;
+
+                .navbar-section-container {
+                    color: #46407C;
+                    text-align: center;
+                }
+
+                // hide unactive names 
+                .navbar-section-name {
+                    display: none;
+                    font-size: 12px;
+                }
+            }
+
+            // when button is active show name of route
+            .navbar-route-clicked {
+                height: 130%;
+
+                .navbar-section-container {
+                    display: grid;
+
+                    i::before {
+                        background: #D6D3FC;
+                        border: 15px solid #D6D3FC;
+                        border-radius: 50%;
+                    }
+
+                    .navbar-section-name {
+                        display: unset;
+                    }
+                }
+            }
         }
 
 
