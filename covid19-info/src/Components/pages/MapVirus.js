@@ -1,10 +1,11 @@
 import React from "react";
+import Header from "../layout/Header";
 import GlobalCases from "../cases/GlobalCases";
 
 const MapVirus = () => {
   return (
     <div>
-      map virus
+      <Header />
       <GlobalCases />
     </div>
   );
