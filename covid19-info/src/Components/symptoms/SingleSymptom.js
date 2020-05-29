@@ -32,9 +32,18 @@ const SingleSymptom = () => {
   ];
   return (
     <div className='single-symptom-container'>
-      {symptomsData.map((data) => (
-        <div key={data.title}>
-          <img src={data.logo} alt='' />
+      {symptomsData.map((symptom) => (
+        <div key={symptom.title} className='single-symptom-chart'>
+          <div className='single-symptom-hero-container'>
+            <img
+              src={symptom.logo}
+              alt='symptom logo'
+              className='single-symptom-hero'
+            />
+          </div>
+          <h4>{symptom.title}</h4>
+          <p>{symptom.shortDesc}</p>
+          <button className='more-symptoms'>więcej</button>
         </div>
       ))}
     </div>

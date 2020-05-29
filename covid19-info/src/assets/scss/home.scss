@@ -1,11 +1,41 @@
 @media screen and (min-width: 320px) {
     .single-symptom-container {
-        max-width: 80vw;
-        height: 215px;
-        background: #fff;
-        overflow: hidden;
+        display: flex;
+        flex-direction: row;
+        align-content: space-between;
         margin: 0 auto;
-        border-radius: 20px;
-        box-shadow: 2px 3px 0px rgba(172, 162, 161, 0.25);
+        overflow-x: scroll;
+        margin-top: 20px;
+
+        .single-symptom-chart {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-left: 10px;
+            margin-right: 10px;
+            min-width: 80vw;
+            height: 215px;
+            border-radius: 20px;
+            box-shadow: 2px 3px 0px rgba(172, 162, 161, 0.25);
+            background: #fff;
+
+            .single-symptom-hero-container {
+                background: #E9E2E2;
+                width: 110px;
+                height: 110px;
+                border-radius: 50%;
+                overflow: hidden;
+                margin-top: 12px;
+
+                .single-symptom-hero {
+                    display: block;
+                    margin: 17px auto;
+                    width: 94px;
+                }
+            }
+        }
+
     }
 }
