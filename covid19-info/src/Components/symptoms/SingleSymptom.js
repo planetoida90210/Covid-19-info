@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import drycough from "../../assets/images/Home/drycough.svg";
 import fever from "../../assets/images/Home/fever.svg";
 import dizzy from "../../assets/images/Home/dizzy.svg";
@@ -6,6 +7,7 @@ import dizzy from "../../assets/images/Home/dizzy.svg";
 const SingleSymptom = () => {
   const symptomsData = [
     {
+      id: 1,
       title: "suchy kaszel",
       shortDesc: "więcej niż połowa zarażonych posiada takie objawy",
       longDescHeader: "suchy kaszel w przebiegu COVID-19",
@@ -14,6 +16,7 @@ const SingleSymptom = () => {
       logo: `${drycough}`,
     },
     {
+      id: 2,
       title: "gorączka",
       shortDesc: "wysoka gorączka zwykle przekraczająca 38◦C",
       longDescHeader: "wysoka gorączka w przebiegu COVID-19",
@@ -22,6 +25,7 @@ const SingleSymptom = () => {
       logo: `${fever}`,
     },
     {
+      id: 3,
       title: "zmęczenie",
       shortDesc: "ból mięśni, poczucie osłabienia organizmu",
       longDescHeader: "osłabienie w przebiegu COVID-19",
@@ -41,9 +45,11 @@ const SingleSymptom = () => {
               className='single-symptom-hero'
             />
           </div>
-          <h4>{symptom.title}</h4>
-          <p>{symptom.shortDesc}</p>
-          <button className='more-symptoms'>więcej</button>
+          <h4 className='single-symptom-header'>{symptom.title}</h4>
+          <p className='single-symptom-shortdesc'>{symptom.shortDesc}</p>
+          <Link to={`/symptoms/${symptom.id}`}>
+            <button className='more-symptoms-btn'>czytaj</button>
+          </Link>
         </div>
       ))}
     </div>
