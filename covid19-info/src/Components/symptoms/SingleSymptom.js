@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import drycough from "../../assets/images/Home/drycough.svg";
 import fever from "../../assets/images/Home/fever.svg";
@@ -34,10 +34,38 @@ const SingleSymptom = () => {
       logo: `${dizzy}`,
     },
   ];
+  const [state, setState] = useState({
+    activeIndex: 0,
+    slideWidth: null,
+  });
+
+  const { slideWidth } = state;
+  console.log(slideWidth);
+  const containerWidth = useRef();
+  const firstCard = symptomsData[0];
+  const secondCard = symptomsData[1];
+  const lastCard = symptomsData[symptomsData.length - 1];
+
+  useEffect(() => {
+    let width = null;
+    if (containerWidth.current) {
+      width = containerWidth.current.offsetWidth;
+    }
+    setState({
+      ...state,
+      slideWidth: width,
+    });
+  }, []);
+  //eslint-disable-next-line
+
   return (
     <div className='single-symptom-container'>
       {symptomsData.map((symptom) => (
-        <div key={symptom.title} className='single-symptom-chart'>
+        <div
+          ref={containerWidth}
+          key={symptom.title}
+          className='single-symptom-chart'
+        >
           <div className='single-symptom-hero-container'>
             <img
               src={symptom.logo}
