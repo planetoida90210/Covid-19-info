@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Arrow from "../layout/Arrow";
 import drycough from "../../assets/images/Home/drycough.svg";
 import fever from "../../assets/images/Home/fever.svg";
 import dizzy from "../../assets/images/Home/dizzy.svg";
@@ -55,8 +56,15 @@ const SingleSymptom = () => {
       ...state,
       slideWidth: width,
     });
-  }, []);
+  }, [containerWidth]);
   //eslint-disable-next-line
+
+  const prevSlide = () => {
+    console.log("cofnij");
+  };
+  const nextSlide = () => {
+    console.log("następny");
+  };
 
   return (
     <div className='single-symptom-container'>
@@ -66,6 +74,8 @@ const SingleSymptom = () => {
           key={symptom.title}
           className='single-symptom-chart'
         >
+          <Arrow direction='left' handleClick={prevSlide} />
+          <Arrow direction='right' handleClick={nextSlide} />
           <div className='single-symptom-hero-container'>
             <img
               src={symptom.logo}
