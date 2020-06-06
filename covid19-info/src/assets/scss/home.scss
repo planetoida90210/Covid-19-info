@@ -3,26 +3,32 @@
     display: flex;
     flex-direction: row;
     align-content: space-between;
-    margin: 20px auto;
+    margin: 10px auto;
     overflow-y: scroll;
-    min-height: 250px;
-
+    min-height: 240px;
+    overflow-x: hidden;
+    .arrow {
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      top: 120px;
+      background: #21abab;
+      &-img {
+        padding: 10px;
+      }
+    }
     .single-symptom-chart {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      margin-left: 10px;
-      margin-right: 10px;
-      min-width: 80vw;
+      margin: 0 15px;
+      min-width: 90vw;
       height: 215px;
       border-radius: 20px;
       box-shadow: 2px 3px 0px rgba(172, 162, 161, 0.25);
       background: #fff;
-      .arrow {
-        width: 30px;
-      }
 
       .single-symptom-header {
         font-size: 24px;

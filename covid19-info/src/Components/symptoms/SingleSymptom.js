@@ -68,14 +68,14 @@ const SingleSymptom = () => {
 
   return (
     <div className='single-symptom-container'>
+      <Arrow direction='left' handleClick={prevSlide} />
+      <Arrow direction='right' handleClick={nextSlide} />
       {symptomsData.map((symptom) => (
         <div
           ref={containerWidth}
           key={symptom.title}
           className='single-symptom-chart'
         >
-          <Arrow direction='left' handleClick={prevSlide} />
-          <Arrow direction='right' handleClick={nextSlide} />
           <div className='single-symptom-hero-container'>
             <img
               src={symptom.logo}
