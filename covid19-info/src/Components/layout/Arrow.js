@@ -5,11 +5,11 @@ const Arrow = ({ direction, handleClick }) => {
   return (
     <>
       {direction === "left" ? (
-        <div className='arrow' style={{ left: "15px" }} onClick={handleClick}>
+        <div className='arrow' style={{ left: "5px" }} onClick={handleClick}>
           <img src={leftArrow} alt='back' />
         </div>
       ) : (
-        <div className='arrow' style={{ right: "15px" }} onClick={handleClick}>
+        <div className='arrow' style={{ right: "5px" }} onClick={handleClick}>
           <img src={rightArrow} alt='next' />
         </div>
       )}

@@ -35,18 +35,21 @@ const SingleSymptom = () => {
       logo: `${dizzy}`,
     },
   ];
-  const [state, setState] = useState({
-    activeIndex: 0,
-    slideWidth: null,
-  });
 
-  const { slideWidth } = state;
-  console.log(slideWidth);
   const containerWidth = useRef();
   const firstCard = symptomsData[0];
   const secondCard = symptomsData[1];
   const lastCard = symptomsData[symptomsData.length - 1];
+  const [state, setState] = useState({
+    activeIndex: 0,
+    slideWidth: null,
+    translate: 0,
+    transition: 0.4,
+    _cards: [lastCard, firstCard, secondCard],
+  });
+  const { slideWidth, activeIndex, translate, transition, _cards } = state;
 
+  // getting reference to single card width by useRef
   useEffect(() => {
     let width = null;
     if (containerWidth.current) {
@@ -59,11 +62,19 @@ const SingleSymptom = () => {
   }, [containerWidth]);
   //eslint-disable-next-line
 
+  // previous card update
   const prevSlide = () => {
     console.log("cofnij");
   };
+
+  // next card update
   const nextSlide = () => {
-    console.log("następny");
+    setState({
+      ...state,
+      translate: translate + slideWidth,
+      activeIndex:
+        activeIndex === symptomsData.length - 1 ? 0 : activeIndex + 1,
+    });
   };
 
   return (
@@ -72,6 +83,9 @@ const SingleSymptom = () => {
       <Arrow direction='right' handleClick={nextSlide} />
       {symptomsData.map((symptom) => (
         <div
+          style={{
+            transform: `translateX(-${translate}px)`,
+          }}
           ref={containerWidth}
           key={symptom.title}
           className='single-symptom-chart'
