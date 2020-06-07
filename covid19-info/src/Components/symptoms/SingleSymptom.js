@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { Fragment, useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Arrow from "../layout/Arrow";
 import drycough from "../../assets/images/Home/drycough.svg";
@@ -45,9 +45,19 @@ const SingleSymptom = () => {
     slideWidth: null,
     translate: 0,
     transition: 0.4,
+    marginLeft: 15,
+    marginRight: 15,
     _cards: [lastCard, firstCard, secondCard],
   });
-  const { slideWidth, activeIndex, translate, transition, _cards } = state;
+  const {
+    slideWidth,
+    activeIndex,
+    translate,
+    transition,
+    _cards,
+    marginLeft,
+    marginRight,
+  } = state;
 
   // getting reference to single card width by useRef
   useEffect(() => {
@@ -61,17 +71,21 @@ const SingleSymptom = () => {
     });
   }, [containerWidth]);
   //eslint-disable-next-line
-
   // previous card update
   const prevSlide = () => {
-    console.log("cofnij");
+    setState({
+      ...state,
+      translate: 0,
+      activeIndex:
+        activeIndex === 0 ? symptomsData.length - 1 : activeIndex - 1,
+    });
   };
 
   // next card update
   const nextSlide = () => {
     setState({
       ...state,
-      translate: translate + slideWidth,
+      translate: translate + slideWidth + marginLeft + marginRight,
       activeIndex:
         activeIndex === symptomsData.length - 1 ? 0 : activeIndex + 1,
     });
@@ -79,30 +93,33 @@ const SingleSymptom = () => {
 
   return (
     <div className='single-symptom-container'>
-      <Arrow direction='left' handleClick={prevSlide} />
-      <Arrow direction='right' handleClick={nextSlide} />
       {symptomsData.map((symptom) => (
-        <div
-          style={{
-            transform: `translateX(-${translate}px)`,
-          }}
-          ref={containerWidth}
-          key={symptom.title}
-          className='single-symptom-chart'
-        >
-          <div className='single-symptom-hero-container'>
-            <img
-              src={symptom.logo}
-              alt='symptom logo'
-              className='single-symptom-hero'
-            />
+        <Fragment key={symptom.title}>
+          <Arrow direction='left' handleClick={prevSlide} />
+          <Arrow direction='right' handleClick={nextSlide} />
+          <div
+            style={{
+              transform: `translateX(-${translate}px)`,
+              marginLeft: `${marginLeft}px`,
+              marginRight: `${marginRight}px`,
+            }}
+            ref={containerWidth}
+            className='single-symptom-chart'
+          >
+            <div className='single-symptom-hero-container'>
+              <img
+                src={symptom.logo}
+                alt='symptom logo'
+                className='single-symptom-hero'
+              />
+            </div>
+            <h4 className='single-symptom-header'>{symptom.title}</h4>
+            <p className='single-symptom-shortdesc'>{symptom.shortDesc}</p>
+            <Link to={`/symptoms/${symptom.id}`}>
+              <button className='more-symptoms-btn'>czytaj</button>
+            </Link>
           </div>
-          <h4 className='single-symptom-header'>{symptom.title}</h4>
-          <p className='single-symptom-shortdesc'>{symptom.shortDesc}</p>
-          <Link to={`/symptoms/${symptom.id}`}>
-            <button className='more-symptoms-btn'>czytaj</button>
-          </Link>
-        </div>
+        </Fragment>
       ))}
     </div>
   );

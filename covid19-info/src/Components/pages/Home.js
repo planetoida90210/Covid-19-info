@@ -4,7 +4,7 @@ import Symptoms from "../symptoms/Symptoms";
 
 const Home = () => {
   return (
-    <div>
+    <div className='home-container'>
       <Header />
       <Symptoms />
     </div>
