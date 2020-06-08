@@ -63,7 +63,7 @@ const SingleSymptom = () => {
   useEffect(() => {
     let width = null;
     if (containerWidth.current) {
-      width = containerWidth.current.offsetWidth;
+      width = containerWidth.current.clientWidth;
     }
     setState({
       ...state,
@@ -71,6 +71,40 @@ const SingleSymptom = () => {
     });
   }, [containerWidth]);
   //eslint-disable-next-line
+  const transitionRef = useRef();
+  useEffect(() => {
+    transitionRef.current = smoothTransition;
+  });
+
+  useEffect(() => {
+    const smooth = () => {
+      transitionRef.current();
+    };
+    const transitionEnd = window.addEventListener("transitionend", smooth);
+    return () => {
+      window.removeEventListener("transitionend", transitionEnd);
+    };
+  }, []);
+  useEffect(() => {
+    if (transition === 0) setState({ ...state, transition: 0.45 });
+  }, [transition]);
+  const smoothTransition = () => {
+    let _cards = [];
+    // We're at the last slide.
+    if (activeIndex === symptomsData.length - 1)
+      _cards = [symptomsData[symptomsData.length - 2], lastCard, firstCard];
+    // We're back at the first slide. Just reset to how it was on initial render
+    else if (activeIndex === 0) _cards = [lastCard, firstCard, secondCard];
+    // Create an array of the previous last slide, and the next two slides that follow it.
+    else _cards = symptomsData.slice(activeIndex - 1, activeIndex + 2);
+
+    setState({
+      ...state,
+      _cards,
+      transition: 0,
+      translate: slideWidth,
+    });
+  };
   // previous card update
   const prevSlide = () => {
     setState({
