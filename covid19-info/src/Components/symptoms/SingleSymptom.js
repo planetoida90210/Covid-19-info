@@ -1,5 +1,5 @@
-import React, { Fragment, useState, useRef, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import SingleCard from "./SingleCard";
 import Arrow from "../layout/Arrow";
 import drycough from "../../assets/images/Home/drycough.svg";
 import fever from "../../assets/images/Home/fever.svg";
@@ -35,42 +35,18 @@ const SingleSymptom = () => {
       logo: `${dizzy}`,
     },
   ];
-
-  const containerWidth = useRef();
+  const widthWindow = () => window.innerWidth;
   const firstCard = symptomsData[0];
   const secondCard = symptomsData[1];
   const lastCard = symptomsData[symptomsData.length - 1];
   const [state, setState] = useState({
     activeIndex: 0,
-    slideWidth: null,
-    translate: 0,
-    transition: 0.4,
-    marginLeft: 15,
-    marginRight: 15,
-    _cards: [lastCard, firstCard, secondCard],
+    translate: widthWindow(),
+    transition: 0.45,
+    cards: [lastCard, firstCard, secondCard],
   });
-  const {
-    slideWidth,
-    activeIndex,
-    translate,
-    transition,
-    _cards,
-    marginLeft,
-    marginRight,
-  } = state;
 
-  // getting reference to single card width by useRef
-  useEffect(() => {
-    let width = null;
-    if (containerWidth.current) {
-      width = containerWidth.current.clientWidth;
-    }
-    setState({
-      ...state,
-      slideWidth: width,
-    });
-  }, [containerWidth]);
-  //eslint-disable-next-line
+  const { activeIndex, translate, cards, transition } = state;
   const transitionRef = useRef();
   useEffect(() => {
     transitionRef.current = smoothTransition;
@@ -85,11 +61,14 @@ const SingleSymptom = () => {
       window.removeEventListener("transitionend", transitionEnd);
     };
   }, []);
+
   useEffect(() => {
     if (transition === 0) setState({ ...state, transition: 0.45 });
   }, [transition]);
+
   const smoothTransition = () => {
     let _cards = [];
+
     // We're at the last slide.
     if (activeIndex === symptomsData.length - 1)
       _cards = [symptomsData[symptomsData.length - 2], lastCard, firstCard];
@@ -100,61 +79,43 @@ const SingleSymptom = () => {
 
     setState({
       ...state,
-      _cards,
+      cards,
       transition: 0,
-      translate: slideWidth,
+      translate: widthWindow(),
     });
   };
-  // previous card update
-  const prevSlide = () => {
+
+  const nextSlide = () =>
+    setState({
+      ...state,
+      translate: translate + widthWindow(),
+      activeIndex:
+        activeIndex === symptomsData.length - 1 ? 0 : activeIndex + 1,
+    });
+
+  const prevSlide = () =>
     setState({
       ...state,
       translate: 0,
       activeIndex:
         activeIndex === 0 ? symptomsData.length - 1 : activeIndex - 1,
     });
-  };
-
-  // next card update
-  const nextSlide = () => {
-    setState({
-      ...state,
-      translate: translate + slideWidth + marginLeft + marginRight,
-      activeIndex:
-        activeIndex === symptomsData.length - 1 ? 0 : activeIndex + 1,
-    });
-  };
 
   return (
     <div className='single-symptom-container'>
-      {symptomsData.map((symptom) => (
-        <Fragment key={symptom.title}>
-          <Arrow direction='left' handleClick={prevSlide} />
-          <Arrow direction='right' handleClick={nextSlide} />
-          <div
-            style={{
-              transform: `translateX(-${translate}px)`,
-              marginLeft: `${marginLeft}px`,
-              marginRight: `${marginRight}px`,
-            }}
-            ref={containerWidth}
-            className='single-symptom-chart'
-          >
-            <div className='single-symptom-hero-container'>
-              <img
-                src={symptom.logo}
-                alt='symptom logo'
-                className='single-symptom-hero'
-              />
-            </div>
-            <h4 className='single-symptom-header'>{symptom.title}</h4>
-            <p className='single-symptom-shortdesc'>{symptom.shortDesc}</p>
-            <Link to={`/symptoms/${symptom.id}`}>
-              <button className='more-symptoms-btn'>czytaj</button>
-            </Link>
-          </div>
-        </Fragment>
-      ))}
+      <Arrow direction='left' handleClick={prevSlide} />
+      <div className='single-symptom-card-container'>
+        {cards.map((symptom) => (
+          <SingleCard
+            transition={transition}
+            translate={translate}
+            symptom={symptom}
+            width={widthWindow() * cards.length}
+            key={symptom.title}
+          />
+        ))}
+      </div>
+      <Arrow direction='right' handleClick={nextSlide} />
     </div>
   );
 };
