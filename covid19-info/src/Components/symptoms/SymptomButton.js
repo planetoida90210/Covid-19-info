@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const SymptomButton = ({ id }) => {
   return (
-    <Link to={`symptoms/${id}`}>
-      <div className='symptom-button'>czytaj</div>
+    <Link to={`symptoms/${id}`} className='symptom-link'>
+      <button className='symptom-button'>czytaj</button>
     </Link>
   );
 };
