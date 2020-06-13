@@ -1,4 +1,5 @@
 import React from "react";
+import SymptomButton from "./SymptomButton";
 
 const SingleCard = ({ symptom, translate, transition }) => {
   return (
@@ -16,6 +17,9 @@ const SingleCard = ({ symptom, translate, transition }) => {
           className='single-symptom-hero'
         />
       </div>
+      <h4 className='single-symptom-header'>{symptom.title}</h4>
+      <p className='single-symptom-shortdesc'>{symptom.shortDesc}</p>
+      <SymptomButton id={symptom.id} />
     </div>
   );
 };

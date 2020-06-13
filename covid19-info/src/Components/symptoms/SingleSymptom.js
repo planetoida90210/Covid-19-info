@@ -67,15 +67,14 @@ const SingleSymptom = () => {
   }, [transition]);
 
   const smoothTransition = () => {
-    let _cards = [];
-
+    let cards = [];
     // We're at the last slide.
     if (activeIndex === symptomsData.length - 1)
-      _cards = [symptomsData[symptomsData.length - 2], lastCard, firstCard];
+      cards = [symptomsData[symptomsData.length - 2], lastCard, firstCard];
     // We're back at the first slide. Just reset to how it was on initial render
-    else if (activeIndex === 0) _cards = [lastCard, firstCard, secondCard];
+    else if (activeIndex === 0) cards = [lastCard, firstCard, secondCard];
     // Create an array of the previous last slide, and the next two slides that follow it.
-    else _cards = symptomsData.slice(activeIndex - 1, activeIndex + 2);
+    else cards = symptomsData.slice(activeIndex - 1, activeIndex + 2);
 
     setState({
       ...state,
