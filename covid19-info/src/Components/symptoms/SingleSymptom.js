@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import SingleCard from "./SingleCard";
-import Arrow from "../layout/Arrow";
+import Arrow from "./Arrow";
+import Dots from "./Dots";
+
 import drycough from "../../assets/images/Home/drycough.svg";
 import fever from "../../assets/images/Home/fever.svg";
 import dizzy from "../../assets/images/Home/dizzy.svg";
@@ -35,23 +37,27 @@ const SingleSymptom = () => {
       logo: `${dizzy}`,
     },
   ];
+  //checking actual width of window
   const widthWindow = () => window.innerWidth;
+  // get reference to symptom data, that we manage later to create carousel effect
   const firstCard = symptomsData[0];
   const secondCard = symptomsData[1];
   const lastCard = symptomsData[symptomsData.length - 1];
+
+  // state hook
   const [state, setState] = useState({
     activeIndex: 0,
     translate: widthWindow(),
     transition: 0.45,
     cards: [lastCard, firstCard, secondCard],
   });
-
   const { activeIndex, translate, cards, transition } = state;
+  // useref hook to set smooth transition beetween last and first slide
   const transitionRef = useRef();
   useEffect(() => {
     transitionRef.current = smoothTransition;
   });
-
+  // add listener on tarnsition end and start
   useEffect(() => {
     const smooth = () => {
       transitionRef.current();
@@ -65,7 +71,7 @@ const SingleSymptom = () => {
   useEffect(() => {
     if (transition === 0) setState({ ...state, transition: 0.45 });
   }, [transition]);
-
+  // change array places to carousel effect in slider
   const smoothTransition = () => {
     let cards = [];
     // We're at the last slide.
@@ -83,7 +89,7 @@ const SingleSymptom = () => {
       translate: widthWindow(),
     });
   };
-
+  // handling next slide button
   const nextSlide = () =>
     setState({
       ...state,
@@ -91,7 +97,7 @@ const SingleSymptom = () => {
       activeIndex:
         activeIndex === symptomsData.length - 1 ? 0 : activeIndex + 1,
     });
-
+  // handling prev slide button
   const prevSlide = () =>
     setState({
       ...state,
@@ -115,6 +121,7 @@ const SingleSymptom = () => {
         ))}
       </div>
       <Arrow direction='right' handleClick={nextSlide} />
+      <Dots activeIndex={activeIndex} cards={symptomsData} />
     </div>
   );
 };

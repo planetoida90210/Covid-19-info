@@ -6,11 +6,11 @@ const Arrow = ({ direction, handleClick }) => {
     <>
       {direction === "left" ? (
         <div className='arrow' onClick={handleClick}>
-          <img src={leftArrow} alt='back' />
+          <img className='arrow-image' src={leftArrow} alt='back' />
         </div>
       ) : (
         <div className='arrow' onClick={handleClick}>
-          <img src={rightArrow} alt='next' />
+          <img className='arrow-image' src={rightArrow} alt='next' />
         </div>
       )}
     </>
