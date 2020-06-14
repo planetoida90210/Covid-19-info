@@ -1,4 +1,5 @@
 @media screen and (min-width: 320px) {
+
   // symptom styling
   .single-symptom-container {
     display: grid;
@@ -9,6 +10,7 @@
     justify-content: center;
     margin: 20px 0;
     min-height: 260px;
+
     .arrow {
       z-index: 2;
       width: 100%;
@@ -20,22 +22,27 @@
       height: 32px;
       cursor: pointer;
       outline: none;
+
       &:nth-of-type(1) {
         margin-left: 10px;
       }
+
       &:nth-of-type(3) {
         margin-left: -10px;
       }
+
       .arrow-image {
         width: 20px;
       }
     }
+
     .dots-container {
       display: flex;
       grid-column-start: 2;
       grid-column-end: 3;
       justify-content: center;
       margin-top: 20px;
+
       .single-dot {
         display: inline-block;
         height: 8px;
@@ -45,10 +52,12 @@
         border-radius: 50%;
       }
     }
+
     .single-symptom-card-container {
       display: grid;
       grid-template-columns: repeat(3, 100%);
       column-gap: 64px;
+
       .single-symptom-card {
         display: flex;
         flex-direction: column;
@@ -57,6 +66,7 @@
         background: #fff;
         border-radius: 20px;
         box-shadow: 2px 3px 0px rgba(172, 162, 161, 0.25);
+
         .single-symptom-hero-container {
           background: #e9e2e2;
           width: 110px;
@@ -64,12 +74,14 @@
           border-radius: 50%;
           overflow: hidden;
           margin-top: 10px;
+
           .single-symptom-hero {
             display: block;
             margin: 17px auto;
             width: 94px;
           }
         }
+
         .single-symptom-header {
           font-size: 24px;
 
@@ -88,9 +100,11 @@
             text-transform: capitalize;
           }
         }
+
         .symptom-link {
           text-decoration: none;
           margin-bottom: -20px;
+
           .symptom-button {
             display: block;
             height: 40px;
@@ -106,6 +120,43 @@
             box-shadow: 1px 2px 0px rgba(172, 162, 161, 0.25);
           }
         }
+      }
+    }
+  }
+
+  // random info styling
+  .random-info-container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    min-height: 120px;
+    width: 80vw;
+    margin: 0 auto;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 2px 3px 0px rgba(172, 162, 161, 0.25);
+
+    .random-info-image {
+      margin: 0 10px;
+    }
+
+    .random-info-header {
+      font-size: 20px;
+      font-weight: normal;
+      margin-left: 10px;
+
+      &::first-letter {
+        text-transform: uppercase;
+      }
+
+      .random-info-more {
+        margin-top: 10px;
+        color: #21ABAB;
+        font-size: 14px;
+        text-transform: capitalize;
+        text-underline-position: under;
+        text-decoration: underline;
+        cursor: pointer;
       }
     }
   }

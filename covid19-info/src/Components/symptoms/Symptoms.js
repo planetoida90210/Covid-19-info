@@ -1,6 +1,6 @@
 import React from "react";
 import SingleSymptom from "./SingleSymptom";
-import RandomInfo from "./RandomInfo";
+import RandomInfo from "../randomInfo/RandomInfo";
 
 const Symptoms = () => {
   return (
