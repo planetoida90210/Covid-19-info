@@ -1,5 +1,4 @@
 @media screen and (min-width: 320px) {
-
   // symptom styling
   .single-symptom-container {
     display: grid;
@@ -8,7 +7,7 @@
     align-items: center;
     align-content: center;
     justify-content: center;
-    margin: 20px 0;
+    margin: 10px 0;
     min-height: 260px;
 
     .arrow {
@@ -151,7 +150,7 @@
 
       .random-info-more {
         margin-top: 10px;
-        color: #21ABAB;
+        color: #21abab;
         font-size: 14px;
         text-transform: capitalize;
         text-underline-position: under;

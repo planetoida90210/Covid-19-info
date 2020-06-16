@@ -11,6 +11,10 @@ import Home from "./Components/pages/Home";
 import MapVirus from "./Components/pages/MapVirus";
 import Acitvities from "./Components/pages/Activities";
 import "./App.css";
+import Symptoms from "./Components/symptoms/Symptoms";
+import RandomInfo from "./Components/randomInfo/RandomInfo";
+import RandomInfoBoard from "./Components/randomInfo/RandomInfoBoard";
+import SymptomDetails from "./Components/symptoms/SymptomDetails";
 
 function App() {
   //fake auth
@@ -23,8 +27,10 @@ function App() {
             <Switch>
               <Redirect from='/welcome' to='/' />
               <Route exact path={"/"} component={Home} />
+              <Route path={"/symptoms/:id"} component={SymptomDetails} />
+              <Route path='/randominfoboard' component={RandomInfoBoard} />
               <Route path={"/map"} component={MapVirus} />
-              <Route path={"/activities"} compoenent={Acitvities} />
+              <Route path={"/activities"} component={Acitvities} />
             </Switch>
             <Navbar />
           </>

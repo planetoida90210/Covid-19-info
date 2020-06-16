@@ -11,7 +11,7 @@ const RandomInfo = () => {
   return (
     <div className='random-info-container'>
       <h2 className='random-info-header'>
-        zostan w domu badz bohaterem
+        zostań w domu bądź bohaterem
         <Link to={"/randominfoboard"} style={{ textDecoration: "none" }}>
           <div className='random-info-more'>czytaj więcej</div>
         </Link>
