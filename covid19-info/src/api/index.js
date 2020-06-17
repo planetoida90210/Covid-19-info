@@ -2,7 +2,7 @@ import axios from "axios";
 
 // get global data
 const url =
-  "https://cors-anywhere.herokuapp.com/https://corona.lmao.ninja/v2/all?yesterday";
+  "https://cors-anywhere.herokuapp.com/http://corona.lmao.ninja/v2/all?yesterday";
 
 // get global data
 export const fetchGlobalData = async () => {

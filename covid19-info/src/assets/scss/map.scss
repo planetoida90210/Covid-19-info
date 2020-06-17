@@ -1,0 +1,17 @@
+@media screen and (min-width: 320px) {
+  .map-navigation {
+    display: flex;
+    justify-content: space-between;
+    width: 90vw;
+    height: 32px;
+    border-radius: 6px;
+    background: #fff;
+    margin: 0 auto;
+    .map-navigation-button {
+      line-height: 32px;
+      &::first-letter {
+        text-transform: uppercase;
+      }
+    }
+  }
+}

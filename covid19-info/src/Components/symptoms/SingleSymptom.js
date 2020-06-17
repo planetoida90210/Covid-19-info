@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+// i do slider components in symptoms folder all components such as arrows bullets and slider content is here
 import SingleCard from "./SingleCard";
 import Arrow from "./Arrow";
 import Dots from "./Dots";
