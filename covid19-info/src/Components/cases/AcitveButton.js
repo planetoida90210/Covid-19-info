@@ -1,7 +1,7 @@
 import React from "react";
 
 const AcitveButton = () => {
-  return <div>active button</div>;
+  return <div className='active-map-button'>świat</div>;
 };
 
 export default AcitveButton;
