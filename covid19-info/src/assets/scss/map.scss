@@ -1,5 +1,36 @@
 @media screen and (min-width: 320px) {
   .map-virus-container {
+    .active-map-container {
+      margin: 10px 0;
+      width: 100vw;
+      height: 220px;
+      background: #fff;
+    }
+    .global-cases-container {
+      text-align: center;
+      height: 130px;
+      width: 100vw;
+      display: grid;
+      grid-template-rows: repeat(2, auto);
+      grid-template-columns: repeat(3, 1fr);
+      background: #fff;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      .global-cases_description {
+        font-weight: lighter;
+        font-size: 15;
+        text-transform: capitalize;
+        align-self: end;
+        grid-row-start: 1;
+        grid-row-end: 2;
+      }
+      .global-cases_counter {
+        font-size: 20px;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        margin-bottom: 20px;
+      }
+    }
     .map-buttons-container {
       display: flex;
       width: 90vw;
@@ -12,6 +43,7 @@
       font-size: 16px;
       margin-right: 15px;
       align-content: center;
+
       .active-map-button {
         width: 80px;
         height: 35px;

@@ -16,13 +16,19 @@ const GlobalCases = () => {
     return <Spinner />;
   }
   return (
-    <div classame='global-cases-container'>
+    <div className='global-cases-container'>
       <h5 className='global-cases_description'>zakażonych</h5>
-      <p className='global-cases_counter'>{active}</p>
+      <p className='global-cases_counter'>
+        {Intl.NumberFormat().format(active)}
+      </p>
       <h5 className='global-cases_description'>wyzdrowiało</h5>
-      <p className='global-cases_counter'>{recovered}</p>
+      <p className='global-cases_counter'>
+        {Intl.NumberFormat().format(recovered)}
+      </p>
       <h5 className='global-cases_description'>umarło</h5>
-      <p className='global-cases_counter'>{deaths}</p>
+      <p className='global-cases_counter'>
+        {Intl.NumberFormat().format(deaths)}
+      </p>
     </div>
   );
 };
