@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Spinner from "../layout/Spinner";
 import { fetchGlobalData } from "../../api";
+import virus from "../../assets/images/Welcome/bacteria-cell-single.svg";
 
 const GlobalCases = () => {
   const [globalData, setGlobalData] = useState({});
@@ -29,6 +30,12 @@ const GlobalCases = () => {
       <p className='global-cases_counter'>
         {Intl.NumberFormat().format(deaths)}
       </p>
+      <img className='welcome-virus-svg' src={virus} alt='bacteria-cell' />
+      <img className='welcome-virus-svg' src={virus} alt='bacteria-cell' />
+      <img className='welcome-virus-svg' src={virus} alt='bacteria-cell' />
+      <img className='welcome-virus-svg' src={virus} alt='bacteria-cell' />
+      <img className='welcome-virus-svg' src={virus} alt='bacteria-cell' />
+      <img className='welcome-virus-svg' src={virus} alt='bacteria-cell' />
     </div>
   );
 };
