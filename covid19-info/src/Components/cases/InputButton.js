@@ -1,7 +1,12 @@
 import React from "react";
 
 const InputButton = ({ countries }) => {
-  return <div className='input-map-button'>świat</div>;
+  console.log(countries);
+  return (
+    <div className='input-map-button'>
+      <input type='text' placeholder='Search' />
+    </div>
+  );
 };
 
 export default InputButton;

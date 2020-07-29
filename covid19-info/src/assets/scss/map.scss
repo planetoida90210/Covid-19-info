@@ -100,8 +100,17 @@
         border-radius: 5px;
         width: 80px;
         height: 35px;
-        color: #46407c;
         border: 2px solid #21abab;
+        input {
+          width: inherit;
+          height: inherit;
+          background: none;
+          outline: none;
+          border: none;
+          text-align: center;
+          font-size: 16px;
+          color: #46407c;
+        }
       }
     }
     .map-navigation {
