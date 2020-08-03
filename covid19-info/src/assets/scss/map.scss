@@ -1,10 +1,29 @@
 @media screen and (min-width: 320px) {
   .map-virus-container {
+    //
     .active-map-container {
       margin: 10px 0;
       width: 100vw;
       height: 220px;
       background: #fff;
+      .mapBox {
+        width: 100%;
+        height: 100%;
+      }
+
+      /* Tooltip code */
+      .mapboxgl-popup {
+        font-family: "Baloo Thambi 2", cursive;
+        font-size: 8px;
+        padding: 0;
+        margin: 0;
+        color: #424242;
+      }
+
+      .mapboxgl-popup-content {
+        padding: 1rem;
+        margin: 0;
+      }
     }
     .global-cases-container {
       text-align: center;
