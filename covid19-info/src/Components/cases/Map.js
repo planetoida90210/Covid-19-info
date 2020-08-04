@@ -16,23 +16,23 @@ const Map = () => {
           type: "Feature",
           geometry: {
             type: "Point",
-            coordinates: [
-              point.coordinates.longitude,
-              point.coordinates.latitude,
-            ],
+            coordinates: [point.countryInfo.long, point.countryInfo.lat],
           },
           properties: {
             id: index, // unique identifier in this case the index
             country: point.country,
-            cases: point.stats.confirmed,
-            deaths: point.stats.deaths,
+            cases: point.cases,
+            dailyCases: point.todayCases,
+            deaths: point.deaths,
           },
         }))
       );
 
   // Fetching our data with swr package
-  const { data } = useSWR("https://corona.lmao.ninja/v2/jhucsse", fetcher);
-
+  const { data } = useSWR(
+    "https://corona.lmao.ninja/v2/countries?sort=country",
+    fetcher
+  );
   useEffect(() => {
     if (data) {
       const map = new mapboxgl.Map({
