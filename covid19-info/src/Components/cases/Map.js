@@ -33,16 +33,18 @@ const Map = () => {
     "https://corona.lmao.ninja/v2/countries?sort=country",
     fetcher
   );
+
   useEffect(() => {
     if (data) {
       const map = new mapboxgl.Map({
         container: mapboxElRef.current,
         style: "mapbox://styles/planetoida90210/ckdeleaer56nu1io8blg36t0l",
         center: [20, 51],
-        zoom: 0.1,
+        zoom: 1,
       });
 
       // Call this method when the map is loaded
+
       map.once("load", function () {
         // Add our SOURCE
         // with id "points"
@@ -63,7 +65,7 @@ const Map = () => {
           paint: {
             "circle-opacity": 0.75,
             "circle-stroke-width": 1,
-            "circle-radius": 4,
+            "circle-radius": 5,
             "circle-color": "#FFEB3B",
           },
         });
