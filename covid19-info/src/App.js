@@ -28,6 +28,7 @@ function App() {
               <Redirect from='/welcome' to='/' />
               <Route exact path={"/"} component={Home} />
               <Route path={"/symptoms/:id"} component={SymptomDetails} />
+
               <Route path='/randominfoboard' component={RandomInfoBoard} />
               <Route path={"/map"} component={MapVirus} />
               <Route path={"/activities"} component={Acitvities} />

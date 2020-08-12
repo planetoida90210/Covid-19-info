@@ -1,6 +1,6 @@
 import React from "react";
-
-const SymptomDetails = () => {
+import { useEffect } from "react";
+const SymptomDetails = ({ match }) => {
   return <div>symptom detail</div>;
 };
 

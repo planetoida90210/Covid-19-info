@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import mapboxgl from "mapbox-gl";
 import useSWR from "swr";
-import lookup from "country-code-lookup";
+// import lookup from "country-code-lookup";
 
 import "mapbox-gl/dist/mapbox-gl.css";
 mapboxgl.accessToken =
@@ -81,13 +81,3 @@ const Map = () => {
 };
 
 export default Map;
-
-// useEffect(() => {
-//     const map = new mapboxgl.Map({
-//       container: mapboxElRef.current,
-//       style: "mapbox://styles/planetoida90210/ckdeleaer56nu1io8blg36t0l",
-//       center: [20, 51],
-//       zoom: 0.1,
-//     });
-//     map.addControl(new mapboxgl.NavigationControl());
-//   }, []);
