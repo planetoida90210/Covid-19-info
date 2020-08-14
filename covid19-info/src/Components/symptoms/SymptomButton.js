@@ -1,5 +1,4 @@
 import React from "react";
-import SymptomDetails from "./SymptomDetails";
 import { NavLink } from "react-router-dom";
 
 const SymptomButton = ({ id }) => {

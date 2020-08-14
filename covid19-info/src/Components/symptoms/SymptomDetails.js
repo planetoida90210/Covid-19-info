@@ -1,7 +1,6 @@
 import React from "react";
-import { useEffect } from "react";
 const SymptomDetails = ({ match }) => {
-  return <div>symptom detail</div>;
+  return <div>{match.params.id}</div>;
 };
 
 export default SymptomDetails;

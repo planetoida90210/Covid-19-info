@@ -39,7 +39,6 @@ const Symptoms = () => {
   return (
     <div>
       <SingleSymptom symptoms={symptomsData} />
-      <SymptomDetails />
     </div>
   );
 };
