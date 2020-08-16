@@ -38,7 +38,7 @@ const SingleSymptom = ({ symptoms }) => {
 
   useEffect(() => {
     if (transition === 0) setState({ ...state, transition: 0.45 });
-  }, [transition]);
+  }, [transition, state]);
   // eslint-disable-next-line
   // change array places to carousel effect in slider
   const smoothTransition = () => {

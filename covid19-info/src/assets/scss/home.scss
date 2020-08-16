@@ -65,6 +65,7 @@
         background: #fff;
         border-radius: 20px;
         box-shadow: 2px 3px 0px rgba(172, 162, 161, 0.25);
+        height: 200px;
 
         .single-symptom-hero-container {
           background: #e9e2e2;
@@ -90,33 +91,13 @@
         }
 
         .single-symptom-shortdesc {
-          font-size: 12px;
+          font-size: 14px;
           font-weight: lighter;
           width: 70%;
           margin-bottom: 5px;
 
           &::first-letter {
             text-transform: capitalize;
-          }
-        }
-
-        .symptom-link {
-          text-decoration: none;
-          margin-bottom: -20px;
-
-          .symptom-button {
-            display: block;
-            height: 40px;
-            width: 125px;
-            background: #21abab;
-            font-size: 20px;
-            outline: none;
-            border: none;
-            border-radius: 23px;
-            color: #fff;
-            text-transform: capitalize;
-            cursor: pointer;
-            box-shadow: 1px 2px 0px rgba(172, 162, 161, 0.25);
           }
         }
       }

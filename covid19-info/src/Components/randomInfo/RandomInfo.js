@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import stayhome from "../../assets/images/Home/stayhome.svg";
 const RandomInfo = () => {
-  const info = [
-    {
-      title: "zostań w domu bądź bohaterem",
-      logo: `${stayhome}`,
-    },
-  ];
+  // const info = [
+  //   {
+  //     title: "zostań w domu bądź bohaterem",
+  //     logo: `${stayhome}`,
+  //   },
+  // ];
   return (
     <div className='random-info-container'>
       <h2 className='random-info-header'>
