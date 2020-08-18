@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../layout/Header";
 import GlobalCases from "../cases/GlobalCases";
+import GlobalList from "../cases/GlobalList";
 import headerIcon from "../../assets/images/Map/airplane.svg";
 import MapButtons from "../cases/MapButtons";
 import Map from "../cases/Map";
@@ -12,6 +13,7 @@ const MapVirus = () => {
     description: "aktualizacja danych co 24h",
     icon: `${headerIcon}`,
   };
+  const [activeTab, setActiveTab] = useState(true);
   const [countriesData, setCountriesData] = useState([]);
   useEffect(() => {
     const fetchAPI = async () => {
@@ -25,17 +27,29 @@ const MapVirus = () => {
       <Header headerContent={headerContent} />
       <MapButtons countries={countries} />
       <div className='map-navigation'>
-        <div className='map-navigation-button'>
+        <button
+          className='map-navigation-button'
+          onClick={() => setActiveTab(false)}
+        >
           <span className='fas fa-list-ul' />
           lista
-        </div>
-        <div className='map-navigation-button'>
+        </button>
+        <button
+          className='map-navigation-button'
+          onClick={() => setActiveTab(true)}
+        >
           <span className='fas fa-map-marker-alt' />
           mapa
-        </div>
+        </button>
       </div>
-      <Map />
-      <GlobalCases />
+      {activeTab ? (
+        <>
+          <Map />
+          <GlobalCases />
+        </>
+      ) : (
+        <GlobalList countriesData={countriesData} />
+      )}
     </div>
   );
 };

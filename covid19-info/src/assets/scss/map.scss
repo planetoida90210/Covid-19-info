@@ -147,12 +147,17 @@
       border-radius: 6px;
       background: #fff;
       margin: 0 auto;
+
       .map-navigation-button {
         line-height: 32px;
         text-transform: capitalize;
         margin: 0 10px;
+        background: none;
+        outline: none;
+        border: none;
         .fas {
           margin-right: 5px;
+          color: #46407c;
         }
       }
     }
