@@ -1,21 +1,10 @@
-import React, { useState, useEffect } from "react";
-import Spinner from "../layout/Spinner";
-import { fetchGlobalData } from "../../api";
+import React from "react";
+
 import virus from "../../assets/images/Welcome/bacteria-cell-single.svg";
 
-const GlobalCases = () => {
-  const [globalData, setGlobalData] = useState({});
+const GlobalCases = ({ globalData }) => {
+  const { active, deaths, recovered } = globalData;
 
-  useEffect(() => {
-    const fetchAPI = async () => {
-      setGlobalData(await fetchGlobalData());
-    };
-    fetchAPI();
-  }, []);
-  const { active, deaths, recovered, updated } = globalData;
-  if (!updated) {
-    return <Spinner />;
-  }
   return (
     <div className='global-cases-container'>
       <h5 className='global-cases_description'>zakażonych</h5>
