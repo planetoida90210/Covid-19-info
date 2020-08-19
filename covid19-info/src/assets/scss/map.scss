@@ -25,7 +25,8 @@
         margin: 0;
       }
     }
-    .global-cases-container {
+    .global-cases-container,
+    .global-country-list-summary {
       text-align: center;
       height: 130px;
       width: 100vw;
@@ -159,6 +160,22 @@
           margin-right: 5px;
           color: #46407c;
         }
+      }
+    }
+    .global-country-list-container {
+      margin-top: 15px;
+      background: #fff;
+      height: 350px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      .global-country-list-summary {
+        margin-top: 10px;
+        background: #46407c;
+        color: #fff;
+        height: 60px;
+        width: 90%;
+        border-radius: 5px;
       }
     }
   }
