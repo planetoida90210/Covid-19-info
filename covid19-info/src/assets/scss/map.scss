@@ -1,6 +1,7 @@
 @media screen and (min-width: 320px) {
   .map-virus-container {
     //
+    height: 100vh;
     .active-map-container {
       margin: 10px 0;
       width: 100vw;
@@ -25,8 +26,7 @@
         margin: 0;
       }
     }
-    .global-cases-container,
-    .global-country-list-summary {
+    .global-cases-container {
       text-align: center;
       height: 130px;
       width: 100vw;
@@ -38,7 +38,7 @@
       border-top-right-radius: 20px;
       .global-cases_description {
         font-weight: lighter;
-        font-size: 15;
+        font-size: 15px;
         text-transform: capitalize;
         align-self: end;
         grid-row-start: 1;
@@ -164,18 +164,38 @@
     }
     .global-country-list-container {
       margin-top: 15px;
-      background: #fff;
-      height: 350px;
+      height: 100%;
       display: flex;
       flex-direction: row;
       justify-content: center;
+      background: #fff;
       .global-country-list-summary {
+        text-align: center;
+        display: grid;
+        grid-template-rows: repeat(2, auto);
+        grid-template-columns: repeat(3, 1fr);
+
         margin-top: 10px;
         background: #46407c;
         color: #fff;
         height: 60px;
         width: 90%;
         border-radius: 5px;
+        .global-cases-detail_description {
+          font-weight: normal;
+          font-size: 10px;
+          text-transform: capitalize;
+          align-self: end;
+          grid-row-start: 1;
+          grid-row-end: 2;
+          z-index: 2;
+        }
+        .global-cases-detail_counter {
+          font-size: 15px;
+          grid-row-start: 2;
+          grid-row-end: 3;
+          z-index: 2;
+        }
       }
     }
   }
