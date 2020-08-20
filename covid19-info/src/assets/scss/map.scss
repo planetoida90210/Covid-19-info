@@ -166,15 +166,14 @@
       margin-top: 15px;
       height: 100%;
       display: flex;
-      flex-direction: row;
-      justify-content: center;
+      flex-direction: column;
+      align-items: center;
       background: #fff;
       .global-country-list-summary {
         text-align: center;
         display: grid;
         grid-template-rows: repeat(2, auto);
         grid-template-columns: repeat(3, 1fr);
-
         margin-top: 10px;
         background: #46407c;
         color: #fff;
@@ -195,6 +194,25 @@
           grid-row-start: 2;
           grid-row-end: 3;
           z-index: 2;
+        }
+      }
+      .global-country-table {
+        width: 90%;
+        list-style: none;
+        .cases-list-info {
+          display: flex;
+          font-size: 10px;
+          text-transform: capitalize;
+        }
+        .global-table-single-country {
+          width: 100%;
+          height: 40px;
+          background: #e9e2e2;
+          margin-bottom: 8px;
+          border-radius: 10px;
+          .global-single-country-flag {
+            width: 50px;
+          }
         }
       }
     }
