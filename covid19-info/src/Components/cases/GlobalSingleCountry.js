@@ -10,10 +10,10 @@ const GlobalSingleCountry = ({
         alt='flag'
         className='global-single-country-flag'
       />
-      <p>{country}</p>
-      <p>{cases}</p>
-      <p>{recovered}</p>
-      <p>{deaths}</p>
+      <p className='global-country_data'>{country}</p>
+      <p className='global-country_data'>{cases}</p>
+      <p className='global-country_data'>{recovered}</p>
+      <p className='global-country_data'>{deaths}</p>
     </div>
   );
 };
