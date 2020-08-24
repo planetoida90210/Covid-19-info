@@ -199,8 +199,12 @@
       .global-country-table {
         width: 90%;
         list-style: none;
+        display: grid;
         .cases-list-info {
-          display: flex;
+          margin: 10px 0;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          justify-items: center;
           font-size: 10px;
           text-transform: capitalize;
         }
@@ -212,7 +216,6 @@
           border-radius: 10px;
           .global-single-country-container {
             display: flex;
-            align-content: center;
             .global-single-country-flag {
               width: 30px;
             }
