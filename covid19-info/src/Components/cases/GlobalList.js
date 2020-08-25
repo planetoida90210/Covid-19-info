@@ -3,18 +3,7 @@ import GlobalSummaryCases from "./GlobalSummaryCases";
 import GlobalSingleCountry from "./GlobalSingleCountry";
 
 const GlobalList = ({ countriesData, globalData }) => {
-  const [data, setData] = useState([]);
-  const sortArray = (type) => {
-    const types = {
-      cases: "cases",
-    };
-    const sortProperty = types[type];
-    const sorted = [...countriesData].sort(
-      (a, b) => b[sortProperty] - a[sortProperty]
-    );
-    console.log(sorted);
-    setData(sorted);
-  };
+  const sortedCountries = countriesData.sort((a, b) => b.cases - a.cases);
 
   return (
     <div className='global-country-list-container'>
@@ -26,7 +15,7 @@ const GlobalList = ({ countriesData, globalData }) => {
           <p>ozdrowieńcy</p>
           <p>zgony</p>
         </div>
-        {countriesData.map((country) => (
+        {sortedCountries.map((country) => (
           <li key={country.country} className='global-table-single-country'>
             <GlobalSingleCountry country={country} />
           </li>
