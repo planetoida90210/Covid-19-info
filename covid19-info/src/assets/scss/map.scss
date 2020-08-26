@@ -149,7 +149,8 @@
       background: #fff;
       margin: 0 auto;
 
-      .map-navigation-button {
+      .map-navigation-button,
+      .map-navigation-button-active {
         line-height: 32px;
         text-transform: capitalize;
         margin: 0 10px;
@@ -159,6 +160,11 @@
         .fas {
           margin-right: 5px;
           color: #46407c;
+        }
+      }
+      .map-navigation-button-active {
+        .fas {
+          color: red;
         }
       }
     }
@@ -202,7 +208,6 @@
         display: grid;
         overflow-y: scroll;
         max-height: 230px;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         .cases-list-info {
           margin: 10px 0;
           display: grid;

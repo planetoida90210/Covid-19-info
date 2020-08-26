@@ -39,14 +39,18 @@ const MapVirus = () => {
       <MapButtons countries={countries} />
       <div className='map-navigation'>
         <button
-          className='map-navigation-button'
+          className={
+            activeTab ? "map-navigation-button" : "map-navigation-button-active"
+          }
           onClick={() => setActiveTab(false)}
         >
           <span className='fas fa-list-ul' />
           lista
         </button>
         <button
-          className='map-navigation-button'
+          className={
+            activeTab ? "map-navigation-button-active" : "map-navigation-button"
+          }
           onClick={() => setActiveTab(true)}
         >
           <span className='fas fa-map-marker-alt' />
