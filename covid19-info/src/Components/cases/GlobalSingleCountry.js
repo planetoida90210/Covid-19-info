@@ -11,9 +11,13 @@ const GlobalSingleCountry = ({
         className='global-single-country-flag'
       />
       <p className='global-country_data'>{country}</p>
-      <p className='global-country_data'>{cases}</p>
-      <p className='global-country_data'>{recovered}</p>
-      <p className='global-country_data'>{deaths}</p>
+      <p className='global-country_data'>{Intl.NumberFormat().format(cases)}</p>
+      <p className='global-country_data'>
+        {Intl.NumberFormat().format(recovered)}
+      </p>
+      <p className='global-country_data'>
+        {Intl.NumberFormat().format(deaths)}
+      </p>
     </div>
   );
 };
