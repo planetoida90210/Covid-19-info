@@ -200,6 +200,7 @@
         width: 90%;
         list-style: none;
         display: grid;
+        overflow-y: scroll;
         .cases-list-info {
           margin: 10px 0;
           display: grid;
@@ -214,10 +215,13 @@
           background: #e9e2e2;
           margin-bottom: 8px;
           border-radius: 10px;
+          font-size: 14px;
           .global-single-country-container {
-            display: flex;
+            display: grid;
+            grid-template-columns: 0.5fr 0.5fr 1fr 1fr 1fr;
+            text-align: center;
             .global-single-country-flag {
-              width: 30px;
+              width: 40px;
             }
           }
         }
