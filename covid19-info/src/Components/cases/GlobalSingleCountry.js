@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import GlobalCountryModal from "./GlobalCountryModal";
-const GlobalSingleCountry = ({
-  country: { countryInfo, country, cases, recovered, deaths },
-}) => {
+const GlobalSingleCountry = ({ country }) => {
   const [show, setShow] = useState(false);
   const openModal = () => setShow(true);
   const closeModal = () => setShow(false);
@@ -12,23 +10,27 @@ const GlobalSingleCountry = ({
       {!show ? (
         <div onClick={openModal} className='global-single-country-container'>
           <img
-            src={countryInfo.flag}
+            src={country.countryInfo.flag}
             alt='flag'
             className='global-single-country-flag'
           />
-          <p className='global-country_data'>{country}</p>
+          <p className='global-country_data'>{country.country}</p>
           <p className='global-country_data'>
-            {Intl.NumberFormat().format(cases)}
+            {Intl.NumberFormat().format(country.cases)}
           </p>
           <p className='global-country_data'>
-            {Intl.NumberFormat().format(recovered)}
+            {Intl.NumberFormat().format(country.recovered)}
           </p>
           <p className='global-country_data'>
-            {Intl.NumberFormat().format(deaths)}
+            {Intl.NumberFormat().format(country.deaths)}
           </p>
         </div>
       ) : (
-        <GlobalCountryModal closeModal={closeModal} show={show} />
+        <GlobalCountryModal
+          closeModal={closeModal}
+          show={show}
+          country={country}
+        />
       )}
     </>
   );

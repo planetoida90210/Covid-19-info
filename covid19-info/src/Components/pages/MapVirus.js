@@ -32,7 +32,6 @@ const MapVirus = () => {
   }, [setCountriesData]);
   const countries = countriesData.map((singleCountry) => singleCountry.country);
   const { updated } = globalData;
-
   return updated ? (
     <div className='map-virus-container'>
       <Header headerContent={headerContent} />
