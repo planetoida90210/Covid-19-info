@@ -164,7 +164,7 @@
       }
       .map-navigation-button-active {
         .fas {
-          color: red;
+          color: #ff0000;
         }
       }
     }
@@ -175,6 +175,7 @@
       flex-direction: column;
       align-items: center;
       background: #fff;
+
       .global-country-list-summary {
         text-align: center;
         display: grid;
@@ -186,6 +187,7 @@
         height: 60px;
         width: 90%;
         border-radius: 5px;
+
         .global-cases-detail_description {
           font-weight: normal;
           font-size: 10px;
@@ -208,6 +210,7 @@
         display: grid;
         overflow-y: scroll;
         max-height: 230px;
+
         .cases-list-info {
           margin: 10px 0;
           display: grid;
@@ -223,6 +226,14 @@
           margin-bottom: 8px;
           border-radius: 10px;
           font-size: 12px;
+          .modal-country-flag {
+            width: 40px;
+          }
+          .modal-cases-data-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+          }
           .global-single-country-container {
             display: grid;
             grid-template-columns: 0.5fr 0.5fr 1fr 1fr 1fr;
