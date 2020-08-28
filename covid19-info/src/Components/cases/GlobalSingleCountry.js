@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import GlobalCountryModal from "./GlobalCountryModal";
-const GlobalSingleCountry = ({ country }) => {
+const GlobalSingleCountry = ({ country, setBlured, blured }) => {
   const [show, setShow] = useState(false);
   const openModal = () => setShow(true);
   const closeModal = () => setShow(false);
-
   return (
     <>
       {!show ? (

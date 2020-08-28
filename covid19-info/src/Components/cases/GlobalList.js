@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import GlobalSummaryCases from "./GlobalSummaryCases";
 import GlobalSingleCountry from "./GlobalSingleCountry";
 
 const GlobalList = ({ countriesData, globalData }) => {
   const sortedCountries = countriesData.sort((a, b) => b.cases - a.cases);
-
   return (
     <div className='global-country-list-container'>
       <GlobalSummaryCases globalData={globalData} />
