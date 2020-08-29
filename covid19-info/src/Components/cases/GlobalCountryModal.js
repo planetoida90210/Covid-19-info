@@ -21,9 +21,9 @@ const GlobalCountryModal = ({ show, closeModal, country }) => {
           </div>
 
           <div className='modal-cases-data-container'>
-            <p>{country.cases}</p>
-            <p>{country.recovered}</p>
-            <p>{country.deaths}</p>
+            <p>{Intl.NumberFormat().format(country.cases)}</p>
+            <p>{Intl.NumberFormat().format(country.recovered)}</p>
+            <p>{Intl.NumberFormat().format(country.deaths)}</p>
             <p className='modal-daily-cases'>{country.todayCases}</p>
             <p className='modal-daily-cases'>{country.todayRecovered}</p>
             <p className='modal-daily-cases'>{country.todayDeaths}</p>
