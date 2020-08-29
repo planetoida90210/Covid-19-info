@@ -11,11 +11,15 @@ const GlobalCountryModal = ({ show, closeModal, country }) => {
           className={show ? "show-modal" : "hide-modal"}
           onClick={closeModal}
         >
-          <img
-            src={country.countryInfo.flag}
-            alt='flag'
-            className='modal-country-flag'
-          />
+          <div className='modal-cases-country-name'>
+            <img
+              src={country.countryInfo.flag}
+              alt='flag'
+              className='modal-country-flag'
+            />
+            <p>{country.country}</p>
+          </div>
+
           <div className='modal-cases-data-container'>
             <p>{country.cases}</p>
             <p>{country.recovered}</p>
