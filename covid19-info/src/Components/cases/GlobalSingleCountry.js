@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import GlobalCountryModal from "./GlobalCountryModal";
-const GlobalSingleCountry = ({ country, setBlured, blured }) => {
+const GlobalSingleCountry = ({ country }) => {
   const [show, setShow] = useState(false);
   const openModal = () => setShow(true);
   const closeModal = () => setShow(false);
@@ -18,7 +18,9 @@ const GlobalSingleCountry = ({ country, setBlured, blured }) => {
             {Intl.NumberFormat().format(country.cases)}
           </p>
           <p className='global-country_data'>
-            {Intl.NumberFormat().format(country.recovered)}
+            {country.recovered === 0
+              ? `-`
+              : Intl.NumberFormat().format(country.recovered)}
           </p>
           <p className='global-country_data'>
             {Intl.NumberFormat().format(country.deaths)}
