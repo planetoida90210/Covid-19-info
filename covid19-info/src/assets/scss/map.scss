@@ -93,7 +93,8 @@
       }
     }
     .map-buttons-container {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
       width: 90vw;
       margin: 20px auto 10px auto;
       text-align: center;
@@ -114,30 +115,44 @@
         margin-right: 15px;
       }
       .input-map-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 5px;
-        width: 80px;
-        height: 35px;
-        border: 2px solid #21abab;
-        margin-right: 70px;
-        input {
-          width: inherit;
-          height: inherit;
+        .input-search-countries {
+          width: 120px;
+          height: 35px;
           background: none;
           outline: none;
-          border: none;
+          border: solid 2px #21abab;
+          border-radius: 5px;
           text-align: center;
           font-size: 16px;
           color: #46407c;
+          transition: 0.3s;
+
+          &::placeholder {
+            color: #46407c;
+          }
+          &:focus {
+            width: 125px;
+          }
+        }
+        .autocomplete-search-bar {
+          background: red;
+          width: 100vw;
+          margin-top: 3px;
+          position: absolute;
+          left: 0;
+          z-index: 3;
+          border-radius: 5px;
+          min-height: 45px;
+          max-height: 280px;
         }
       }
+
       .chart-button-container {
         color: #46407c;
         font-size: 30px;
         line-height: 35px;
         text-align: center;
+        margin-left: 10px;
       }
     }
     .map-navigation {
@@ -257,9 +272,10 @@
                   justify-self: center;
                   line-height: 24px;
                   border-radius: 4px;
-                  width: 45px;
+                  width: 50px;
                   height: 24px;
                   font-weight: bold;
+                  font-size: 13px;
                   &:nth-last-child(1) {
                     background: #ffd9d7;
                     color: #ff0000;
