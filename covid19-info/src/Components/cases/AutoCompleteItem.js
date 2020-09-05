@@ -1,9 +1,9 @@
 import React from "react";
 
-const AutoCompleteItem = () => {
+const AutoCompleteItem = ({ country }) => {
   return (
     <>
-      <li className='autocomplete-search-country'>nazwa kraju</li>
+      <li className='autocomplete-search-country'>{country}</li>
     </>
   );
 };
