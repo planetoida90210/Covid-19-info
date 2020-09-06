@@ -136,6 +136,7 @@
         }
         .autocomplete-search-bar {
           background: #fff;
+          opacity: 0.95;
           border: 1px solid #aaa;
           width: 100vw;
           margin-top: 3px;
@@ -144,9 +145,13 @@
           z-index: 3;
           border-radius: 5px;
           min-height: 45px;
-          max-height: 280px;
+          max-height: 138px;
+          overflow-y: scroll;
           .autocomplete-search-country {
-            color: black;
+            color: #46407c;
+            font-size: 17px;
+            line-height: 45px;
+            border-bottom: 1px dashed #aaa;
           }
         }
         .autocomplete-search-bar_hide {

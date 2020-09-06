@@ -34,13 +34,14 @@ const InputButton = ({ countries }) => {
   };
 
   const showAutoSuggestion = () => setVisibility(true);
+
   const hideAutoSuggestion = () => setVisibility(false);
 
   return (
     <div className='input-map-button' ref={searchContainer}>
       <input
         className='input-search-countries'
-        type='text'
+        type='search'
         placeholder='Szukaj'
         onClick={showAutoSuggestion}
         onChange={(e) => setSearchCountry(e.target.value)}
