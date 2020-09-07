@@ -32,7 +32,6 @@ const InputButton = ({ countries }) => {
       hideAutoSuggestion();
     }
   };
-
   const showAutoSuggestion = () => setVisibility(true);
 
   const hideAutoSuggestion = () => setVisibility(false);
