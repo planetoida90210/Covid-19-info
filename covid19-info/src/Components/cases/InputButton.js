@@ -1,6 +1,11 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import AutocompleteItem from "./AutoCompleteItem";
-const InputButton = ({ countries }) => {
+const InputButton = ({
+  countries,
+  pickCountry,
+  setPickCountry,
+  chooseCountry,
+}) => {
   const [isVisible, setVisibility] = useState(false);
   const [searchCountry, setSearchCountry] = useState("");
   const [cursor, setCursor] = useState(-1);
@@ -52,7 +57,13 @@ const InputButton = ({ countries }) => {
       >
         <ul className='autocomplete-list' ref={searchResultRef}>
           {suggestions.map((country) => (
-            <AutocompleteItem key={country} country={country} />
+            <AutocompleteItem
+              key={country}
+              country={country}
+              pickCountry={pickCountry}
+              setPickCountry={setPickCountry}
+              chooseCountry={chooseCountry}
+            />
           ))}
         </ul>
       </div>

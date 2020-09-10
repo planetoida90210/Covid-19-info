@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import GlobalSummaryCases from "./GlobalSummaryCases";
 import GlobalSingleCountry from "./GlobalSingleCountry";
 

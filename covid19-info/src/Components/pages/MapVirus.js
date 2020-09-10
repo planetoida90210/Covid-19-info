@@ -17,7 +17,7 @@ const MapVirus = () => {
   const [activeTab, setActiveTab] = useState(true);
   const [countriesData, setCountriesData] = useState([]);
   const [globalData, setGlobalData] = useState({});
-
+  const [pickCountry, setPickCountry] = useState(false);
   useEffect(() => {
     const fetchAPI = async () => {
       setGlobalData(await fetchGlobalData());
@@ -30,12 +30,20 @@ const MapVirus = () => {
     };
     fetchAPI();
   }, [setCountriesData]);
+  const chooseCountry = (country) => {
+    console.log(country.currentTarget);
+  };
   const countries = countriesData.map((singleCountry) => singleCountry.country);
   const { updated } = globalData;
   return updated ? (
     <div className='map-virus-container'>
       <Header headerContent={headerContent} />
-      <MapButtons countries={countries} />
+      <MapButtons
+        countries={countries}
+        pickCountry={pickCountry}
+        setPickCountry={setPickCountry}
+        chooseCountry={chooseCountry}
+      />
       <div className='map-navigation'>
         <button
           className={
