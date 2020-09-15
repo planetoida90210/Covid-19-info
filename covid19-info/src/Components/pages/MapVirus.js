@@ -31,7 +31,7 @@ const MapVirus = () => {
     fetchAPI();
   }, [setCountriesData]);
   const chooseCountry = (country) => {
-    console.log(country.currentTarget);
+    console.log(country.target.innerText);
   };
   const countries = countriesData.map((singleCountry) => singleCountry.country);
   const { updated } = globalData;
