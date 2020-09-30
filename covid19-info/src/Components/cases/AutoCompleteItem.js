@@ -8,7 +8,10 @@ const AutoCompleteItem = ({
 }) => {
   return (
     <>
-      <li onClick={chooseCountry} className='autocomplete-search-country'>
+      <li
+        onClick={() => setPickCountry(!pickCountry)}
+        className='autocomplete-search-country'
+      >
         {country}
       </li>
     </>

@@ -3,6 +3,7 @@ import Header from "../layout/Header";
 import GlobalCases from "../cases/GlobalCases";
 import Spinner from "../layout/Spinner";
 import GlobalList from "../cases/GlobalList";
+import AutocompleteItem from "../cases/AutoCompleteItem";
 import headerIcon from "../../assets/images/Map/airplane.svg";
 import MapButtons from "../cases/MapButtons";
 import Map from "../cases/Map";
@@ -64,11 +65,16 @@ const MapVirus = () => {
           mapa
         </button>
       </div>
+
       {activeTab ? (
-        <>
-          <Map />
-          <GlobalCases globalData={globalData} />
-        </>
+        pickCountry ? (
+          <AutocompleteItem />
+        ) : (
+          <>
+            <Map />
+            <GlobalCases globalData={globalData} />
+          </>
+        )
       ) : (
         <GlobalList countriesData={countriesData} globalData={globalData} />
       )}
