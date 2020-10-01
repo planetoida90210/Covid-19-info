@@ -5,11 +5,15 @@ const AutoCompleteItem = ({
   setPickCountry,
   pickCountry,
   chooseCountry,
+  hideAutoSuggestion,
 }) => {
   return (
     <>
       <li
-        onClick={() => setPickCountry(!pickCountry)}
+        onClick={() => {
+          setPickCountry(!pickCountry);
+          hideAutoSuggestion();
+        }}
         className='autocomplete-search-country'
       >
         {country}

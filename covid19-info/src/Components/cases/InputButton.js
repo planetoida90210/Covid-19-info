@@ -63,6 +63,7 @@ const InputButton = ({
               pickCountry={pickCountry}
               setPickCountry={setPickCountry}
               chooseCountry={chooseCountry}
+              hideAutoSuggestion={hideAutoSuggestion}
             />
           ))}
         </ul>

@@ -19,6 +19,7 @@ const MapVirus = () => {
   const [countriesData, setCountriesData] = useState([]);
   const [globalData, setGlobalData] = useState({});
   const [pickCountry, setPickCountry] = useState(false);
+
   useEffect(() => {
     const fetchAPI = async () => {
       setGlobalData(await fetchGlobalData());
