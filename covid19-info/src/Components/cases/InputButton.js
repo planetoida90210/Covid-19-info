@@ -8,7 +8,6 @@ const InputButton = ({
 }) => {
   const [isVisible, setVisibility] = useState(false);
   const [searchCountry, setSearchCountry] = useState("");
-  const [cursor, setCursor] = useState(-1);
 
   const searchContainer = useRef(null);
   const searchResultRef = useRef(null);
@@ -35,6 +34,11 @@ const InputButton = ({
       !searchContainer.current.contains(e.target)
     ) {
       hideAutoSuggestion();
+    }
+  };
+  const clearSearch = () => {
+    if (pickCountry) {
+      setSearchCountry("");
     }
   };
   const showAutoSuggestion = () => setVisibility(true);
@@ -64,6 +68,7 @@ const InputButton = ({
               setPickCountry={setPickCountry}
               chooseCountry={chooseCountry}
               hideAutoSuggestion={hideAutoSuggestion}
+              clearSearch={clearSearch}
             />
           ))}
         </ul>

@@ -6,6 +6,7 @@ const AutoCompleteItem = ({
   pickCountry,
   chooseCountry,
   hideAutoSuggestion,
+  clearSearch,
 }) => {
   return (
     <>
@@ -13,6 +14,7 @@ const AutoCompleteItem = ({
         onClick={() => {
           setPickCountry(!pickCountry);
           hideAutoSuggestion();
+          clearSearch();
         }}
         className='autocomplete-search-country'
       >
