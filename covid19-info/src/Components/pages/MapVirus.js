@@ -4,6 +4,7 @@ import GlobalCases from "../cases/GlobalCases";
 import Spinner from "../layout/Spinner";
 import GlobalList from "../cases/GlobalList";
 import AutocompleteItem from "../cases/AutoCompleteItem";
+import ActiveCountry from "../cases/ActiveCountry";
 import headerIcon from "../../assets/images/Map/airplane.svg";
 import MapButtons from "../cases/MapButtons";
 import Map from "../cases/Map";
@@ -19,6 +20,7 @@ const MapVirus = () => {
   const [countriesData, setCountriesData] = useState([]);
   const [globalData, setGlobalData] = useState({});
   const [pickCountry, setPickCountry] = useState(false);
+  const [choosenCountry, setChoosenCountry] = useState({});
 
   useEffect(() => {
     const fetchAPI = async () => {
@@ -33,8 +35,9 @@ const MapVirus = () => {
     fetchAPI();
   }, [setCountriesData]);
   const chooseCountry = (country) => {
-    console.log(country.target.innerText);
+    return setChoosenCountry(country);
   };
+
   const countries = countriesData.map((singleCountry) => singleCountry.country);
   const { updated } = globalData;
   return updated ? (
@@ -69,7 +72,7 @@ const MapVirus = () => {
 
       {activeTab ? (
         pickCountry ? (
-          <AutocompleteItem />
+          <ActiveCountry choosenCountry={choosenCountry} />
         ) : (
           <>
             <Map />

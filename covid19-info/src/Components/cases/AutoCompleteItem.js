@@ -12,6 +12,7 @@ const AutoCompleteItem = ({
     <>
       <li
         onClick={() => {
+          chooseCountry(country);
           setPickCountry(!pickCountry);
           hideAutoSuggestion();
           clearSearch();
