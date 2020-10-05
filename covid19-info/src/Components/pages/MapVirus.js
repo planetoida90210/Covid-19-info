@@ -3,7 +3,6 @@ import Header from "../layout/Header";
 import GlobalCases from "../cases/GlobalCases";
 import Spinner from "../layout/Spinner";
 import GlobalList from "../cases/GlobalList";
-import AutocompleteItem from "../cases/AutoCompleteItem";
 import ActiveCountry from "../cases/ActiveCountry";
 import headerIcon from "../../assets/images/Map/airplane.svg";
 import MapButtons from "../cases/MapButtons";
@@ -37,7 +36,6 @@ const MapVirus = () => {
   const chooseCountry = (country) => {
     return setChoosenCountry(country);
   };
-
   const countries = countriesData.map((singleCountry) => singleCountry.country);
   const { updated } = globalData;
   return updated ? (

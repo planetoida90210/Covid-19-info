@@ -9,6 +9,7 @@ const InputButton = ({
   const [isVisible, setVisibility] = useState(false);
   const [searchCountry, setSearchCountry] = useState("");
 
+  const countryName = countries.map((country) => country);
   const searchContainer = useRef(null);
   const searchResultRef = useRef(null);
 
@@ -22,11 +23,11 @@ const InputButton = ({
   }, []);
 
   const suggestions = useMemo(() => {
-    if (!searchCountry) return countries;
-    return countries.filter((country) =>
+    if (!searchCountry) return countryName;
+    return countryName.filter((country) =>
       country.toLowerCase().includes(searchCountry.toLowerCase())
     );
-  }, [countries, searchCountry]);
+  }, [countryName, searchCountry]);
 
   const handleClickOutside = (e) => {
     if (
