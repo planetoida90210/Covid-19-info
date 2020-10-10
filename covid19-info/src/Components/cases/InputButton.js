@@ -5,6 +5,7 @@ const InputButton = ({
   pickCountry,
   setPickCountry,
   chooseCountry,
+  countriesData,
 }) => {
   const [isVisible, setVisibility] = useState(false);
   const [searchCountry, setSearchCountry] = useState("");
@@ -24,7 +25,7 @@ const InputButton = ({
 
   const suggestions = useMemo(() => {
     if (!searchCountry) return countryName;
-    return countryName.filter((country) =>
+    return countriesData.country.filter((country) =>
       country.toLowerCase().includes(searchCountry.toLowerCase())
     );
   }, [countryName, searchCountry]);
@@ -63,6 +64,7 @@ const InputButton = ({
         <ul className='autocomplete-list' ref={searchResultRef}>
           {suggestions.map((country) => (
             <AutocompleteItem
+              countriesData={countriesData}
               key={country}
               country={country}
               pickCountry={pickCountry}

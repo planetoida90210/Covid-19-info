@@ -7,11 +7,13 @@ const MapButtons = ({
   pickCountry,
   setPickCountry,
   chooseCountry,
+  countriesData,
 }) => {
   return (
     <div className='map-buttons-container'>
       <AcitveButton />
       <InputButton
+        countriesData={countriesData}
         countries={countries}
         pickCountry={pickCountry}
         setPickCountry={setPickCountry}

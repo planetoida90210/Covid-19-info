@@ -34,14 +34,18 @@ const MapVirus = () => {
     fetchAPI();
   }, [setCountriesData]);
   const chooseCountry = (country) => {
-    return setChoosenCountry(country);
+    if (countriesData.find((x) => x.country === country)) {
+      setChoosenCountry("test");
+    }
   };
   const countries = countriesData.map((singleCountry) => singleCountry.country);
   const { updated } = globalData;
+
   return updated ? (
     <div className='map-virus-container'>
       <Header headerContent={headerContent} />
       <MapButtons
+        countriesData={countriesData}
         countries={countries}
         pickCountry={pickCountry}
         setPickCountry={setPickCountry}
