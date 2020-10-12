@@ -19,7 +19,7 @@ const MapVirus = () => {
   const [countriesData, setCountriesData] = useState([]);
   const [globalData, setGlobalData] = useState({});
   const [pickCountry, setPickCountry] = useState(false);
-  const [choosenCountry, setChoosenCountry] = useState({});
+  const [choosenCountry, setChoosenCountry] = useState([]);
 
   useEffect(() => {
     const fetchAPI = async () => {
@@ -34,9 +34,12 @@ const MapVirus = () => {
     fetchAPI();
   }, [setCountriesData]);
   const chooseCountry = (country) => {
-    if (countriesData.find((x) => x.country === country)) {
-      setChoosenCountry("test");
-    }
+    let filteredCountry = countriesData.filter(
+      (selectedCountry) => selectedCountry.country === country
+    );
+
+    console.log(filteredCountry);
+    setChoosenCountry(filteredCountry);
   };
   const countries = countriesData.map((singleCountry) => singleCountry.country);
   const { updated } = globalData;
