@@ -37,8 +37,6 @@ const MapVirus = () => {
     let filteredCountry = countriesData.filter(
       (selectedCountry) => selectedCountry.country === country
     );
-
-    console.log(filteredCountry);
     setChoosenCountry(filteredCountry);
   };
   const countries = countriesData.map((singleCountry) => singleCountry.country);

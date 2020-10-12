@@ -1,7 +1,9 @@
 import React from "react";
 
 const ActiveCountry = ({ choosenCountry }) => {
-  return <div>{console.log(choosenCountry)}</div>;
+  const elo = { ...choosenCountry };
+  const { cases, country } = elo[0];
+  return <div>{country}</div>;
 };
 
 export default ActiveCountry;
