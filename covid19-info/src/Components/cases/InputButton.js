@@ -25,7 +25,7 @@ const InputButton = ({
 
   const suggestions = useMemo(() => {
     if (!searchCountry) return countryName;
-    return countriesData.country.filter((country) =>
+    return countryName.filter((country) =>
       country.toLowerCase().includes(searchCountry.toLowerCase())
     );
   }, [countryName, searchCountry]);
