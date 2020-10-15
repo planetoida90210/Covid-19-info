@@ -18,11 +18,23 @@ const ActiveCountry = ({ choosenCountry }) => {
   } = elo[0];
   return (
     <div className='active-country-details-data'>
-      <div className='country-details-data-name'>
+      <div className='single-country-details-data-name'>
         <h5>{country}</h5>
         <img src={countryInfo.flag} alt='country flag' />
       </div>
-      <div className='country-details-map'>mapa</div>
+      <div className='single-country-details-map'>mapa</div>
+      <div className='single-country-detail-table'>
+        <p className='detail-table-name'>łącznie</p>
+        <p className='detail-table-data'>{cases}</p>
+        <p className='detail-table-name'>aktualnie</p>
+        <p className='detail-table-data'>{active}</p>
+        <p className='detail-table-name'>dzisiaj</p>
+        <p className='detail-table-data'>{todayCases}</p>
+        <p className='detail-table-name'>wyzdrowiało</p>
+        <p className='detail-table-data'>{recovered}</p>
+        <p className='detail-table-name'>dzisiaj</p>
+        <p className='detail-table-data'>{todayRecovered}</p>
+      </div>
     </div>
   );
 };
