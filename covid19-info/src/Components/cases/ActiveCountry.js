@@ -20,7 +20,11 @@ const ActiveCountry = ({ choosenCountry }) => {
     <div className='active-country-details-data'>
       <div className='single-country-details-data-name'>
         <h5>{country}</h5>
-        <img src={countryInfo.flag} alt='country flag' />
+        <img
+          className='single-country-details-flag'
+          src={countryInfo.flag}
+          alt='country flag'
+        />
       </div>
       <div className='single-country-details-map'>mapa</div>
       <div className='single-country-detail-table'>

@@ -2,11 +2,13 @@
   .map-virus-container {
     //
     height: 100vh;
+
     .active-map-container {
       margin: 10px 0;
       width: 100vw;
       height: 220px;
       background: #fff;
+
       .mapBox {
         width: 100%;
         height: 100%;
@@ -26,6 +28,7 @@
         margin: 0;
       }
     }
+
     .global-cases-container {
       text-align: center;
       height: 130px;
@@ -36,6 +39,7 @@
       background: #fff;
       border-top-left-radius: 20px;
       border-top-right-radius: 20px;
+
       .global-cases_description {
         font-weight: lighter;
         font-size: 15px;
@@ -45,6 +49,7 @@
         grid-row-end: 2;
         z-index: 2;
       }
+
       .global-cases_counter {
         font-size: 20px;
         grid-row-start: 2;
@@ -52,39 +57,46 @@
         margin-bottom: 20px;
         z-index: 2;
       }
+
       .welcome-virus-svg {
         width: 28px;
         position: fixed;
         z-index: 1;
+
         &:nth-of-type(1) {
           width: 34px;
           margin-left: 45px;
           margin-top: 5px;
           transform: rotate(115deg);
         }
+
         &:nth-of-type(2) {
           width: 16px;
           margin-left: 185px;
           margin-top: 75px;
         }
+
         &:nth-of-type(3) {
           width: 56px;
           margin-left: 285px;
           margin-top: 4px;
           transform: rotate(35deg);
         }
+
         &:nth-of-type(4) {
           width: 66px;
           margin-left: 15px;
           margin-top: 70px;
           transform: rotate(64deg);
         }
+
         &:nth-of-type(5) {
           width: 34px;
           margin-left: 200px;
           margin-top: 24px;
           transform: rotate(45deg);
         }
+
         &:nth-of-type(6) {
           margin-left: 15px;
           margin-top: 6px;
@@ -92,6 +104,7 @@
         }
       }
     }
+
     .map-buttons-container {
       display: grid;
       grid-template-columns: 1fr 2fr 1fr;
@@ -114,6 +127,7 @@
         box-shadow: 1px 2px 0px rgba(172, 162, 161, 0.25);
         margin-right: 15px;
       }
+
       .input-map-button {
         .input-search-countries {
           width: 120px;
@@ -130,10 +144,12 @@
           &::placeholder {
             color: #46407c;
           }
+
           &:focus {
             width: 125px;
           }
         }
+
         .autocomplete-search-bar {
           background: #fff;
           opacity: 0.95;
@@ -147,6 +163,7 @@
           min-height: 45px;
           max-height: 138px;
           overflow-y: scroll;
+
           .autocomplete-search-country {
             color: #46407c;
             font-size: 17px;
@@ -154,6 +171,7 @@
             border-bottom: 1px dashed #aaa;
           }
         }
+
         .autocomplete-search-bar_hide {
           display: none;
         }
@@ -167,6 +185,7 @@
         margin-left: 10px;
       }
     }
+
     .map-navigation {
       display: flex;
       justify-content: space-between;
@@ -184,17 +203,45 @@
         background: none;
         outline: none;
         border: none;
+
         .fas {
           margin-right: 5px;
           color: #46407c;
         }
       }
+
       .map-navigation-button-active {
         .fas {
           color: #ff0000;
         }
       }
     }
+
+    // single country review
+    .active-country-details-data {
+      display: grid;
+      background: #222;
+      justify-content: center;
+      margin-top: 5px;
+
+      .single-country-details-data-name {
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        width: 90vw;
+        border-radius: 10px;
+
+        .single-country-details-flag {
+
+          width: 40px;
+        }
+      }
+    }
+
     // list of global countries
     .global-country-list-container {
       margin-top: 15px;
@@ -215,6 +262,7 @@
         height: 60px;
         width: 90%;
         border-radius: 5px;
+
         .global-cases-detail_description {
           font-weight: normal;
           font-size: 10px;
@@ -223,12 +271,14 @@
           grid-row-start: 1;
           grid-row-end: 2;
         }
+
         .global-cases-detail_counter {
           font-size: 15px;
           grid-row-start: 2;
           grid-row-end: 3;
         }
       }
+
       .global-country-table {
         width: 90%;
         list-style: none;
@@ -264,6 +314,7 @@
             border-radius: 10px;
             font-size: 12px;
             background: #f6f6f6;
+
             .show-modal {
               display: grid;
               grid-template-columns: 1fr 2.7fr;
@@ -272,9 +323,11 @@
               justify-items: space-around;
               text-align: center;
               font-size: 14px;
+
               .modal-country-flag {
                 width: 50px;
               }
+
               .modal-cases-data-container {
                 display: grid;
                 grid-template-columns: repeat(3, 1fr);
@@ -288,14 +341,17 @@
                   height: 24px;
                   font-weight: bold;
                   font-size: 13px;
+
                   &:nth-last-child(1) {
                     background: #ffd9d7;
                     color: #ff0000;
                   }
+
                   &:nth-last-child(2) {
                     background: #d6eaff;
                     color: #002f60;
                   }
+
                   &:nth-last-child(3) {
                     background: #e5ffe3;
                     color: #065a00;
@@ -312,6 +368,7 @@
             height: 100%;
             align-content: center;
             align-items: center;
+
             .global-single-country-flag {
               margin-left: 10px;
               margin-right: 4px;
