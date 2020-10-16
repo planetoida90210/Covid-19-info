@@ -38,6 +38,8 @@ const ActiveCountry = ({ choosenCountry }) => {
         <p className='detail-table-data'>{recovered}</p>
         <p className='detail-table-name'>dzisiaj</p>
         <p className='detail-table-data'>{todayRecovered}</p>
+        <p className='detail-table-name'>testów</p>
+        <p className='detail-table-data'>{tests}</p>
       </div>
     </div>
   );
