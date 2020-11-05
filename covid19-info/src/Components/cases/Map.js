@@ -6,7 +6,7 @@ import lookup from "country-code-lookup";
 import "mapbox-gl/dist/mapbox-gl.css";
 mapboxgl.accessToken =
   "pk.eyJ1IjoicGxhbmV0b2lkYTkwMjEwIiwiYSI6ImNrZGQyeGU4ZzE3d2kzMXQ5aXQydGRycDcifQ.iDPOx8aTyZDvXtcEGQjX2Q";
-const Map = () => {
+const Map = ({activeCountry}) => {
   const mapboxElRef = useRef(null);
   const fetcher = (url) =>
     fetch(url)
@@ -42,102 +42,131 @@ const Map = () => {
         center: [20, 51],
         zoom: 1,
       });
-
-      // Call this method when the map is loaded
-
-      map.once("load", function () {
-        // Add our SOURCE
-        // with id "points"
-        map.addSource("points", {
-          type: "geojson",
-          data: {
-            type: "FeatureCollection",
-            features: data,
-          },
-        });
-
-        // Add our layer
+      
+     if(activeCountry){
+      map.on('load', function() {
+        //On map load, we want to do some stuff
         map.addLayer({
-          id: "circles",
-          source: "points", // this should be the id of the source
-          type: "circle",
-          // paint properties
+          //here we are adding a layer containing the tileset we just uploaded
+          id: 'countries', //this is the name of our layer, which we will need later
+          source: {
+            type: 'vector',
+            url: 'mapbox://styles/planetoida90210/ckdeleaer56nu1io8blg36t0l', // <--- Add the Map ID you copied here
+          },
+          'source-layer': 'ne_10m_admin_0_countries-dqlykg', // <--- Add the source layer name you copied here
+          type: 'fill',
           paint: {
-            "circle-opacity": 0.75,
-            "circle-stroke-width": 1,
-            "circle-radius": 5,
-            "circle-color": "#FFEB3B",
+            'fill-color': '#52489C', //this is the color you want your tileset to have (I used a nice purple color)
+            'fill-outline-color': '#F2F2F2', //this helps us distinguish individual countries a bit better by giving them an outline
           },
         });
-        const popup = new mapboxgl.Popup({
-          closeButton: false,
-          closeOnClick: false,
-        });
+      
+        map.setFilter(
+          'countries',
+          ['in', 'ADM0_A3_IS'].concat(['USA', 'AUS', 'NGA']),
+        ); // This line lets us filter by country codes.
+        })      
+   
+     } else {
+// Call this method when the map is loaded
 
-        // Variable to hold the active country/province on hover
-        let lastId;
+map.once("load", function () {
+  // Add our SOURCE
+  // with id "points"
+  map.addSource("points", {
+    type: "geojson",
+    data: {
+      type: "FeatureCollection",
+      features: data,
+    },
+  });
 
-        // Mouse move event
-        map.on("mousemove", "circles", (e) => {
-          // Get the id from the properties
-          const id = e.features[0].properties.id;
 
-          // Only if the id are different we process the tooltip
-          if (id !== lastId) {
-            lastId = id;
+  // Add our layer
+  map.addLayer({
+    id: "circles",
+    source: "points", // this should be the id of the source
+    type: "circle",
+    // paint properties
+    paint: {
+      "circle-opacity": 0.75,
+      "circle-stroke-width": 1,
+      "circle-radius": 5,
+      "circle-color": "#FFEB3B",
+    },
+  });
+  const popup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false,
+  });
 
-            // Change the pointer type on move move
-            map.getCanvas().style.cursor = "pointer";
+  // Variable to hold the active country/province on hover
+  let lastId;
 
-            const {
-              cases,
-              deaths,
-              country,
-              province,
-            } = e.features[0].properties;
-            const coordinates = e.features[0].geometry.coordinates.slice();
+  // Mouse move event
+  map.on("mousemove", "circles", (e) => {
+    // Get the id from the properties
+    const id = e.features[0].properties.id;
 
-            // Get all data for the tooltip
-            const countryISO =
-              lookup.byCountry(country)?.iso2 ||
-              lookup.byInternet(country)?.iso2;
+    // Only if the id are different we process the tooltip
+    if (id !== lastId) {
+      lastId = id;
 
-            const provinceHTML =
-              province !== "null" ? `<p>Province: <b>${province}</b></p>` : "";
+      // Change the pointer type on move move
+      map.getCanvas().style.cursor = "pointer";
 
-            const mortalityRate = ((deaths / cases) * 100).toFixed(2);
+      const {
+        cases,
+        deaths,
+        country,
+        province,
+      } = e.features[0].properties;
+      const coordinates = e.features[0].geometry.coordinates.slice();
 
-            const countryFlagHTML = Boolean(countryISO)
-              ? `<img src="https://www.countryflags.io/${countryISO}/flat/64.png"></img>`
-              : "";
+      // Get all data for the tooltip
+      const countryISO =
+        lookup.byCountry(country)?.iso2 ||
+        lookup.byInternet(country)?.iso2;
 
-            const HTML = `<p>Country: <b>${country}</b></p>
-                      ${provinceHTML}
-                      <p>Cases: <b>${cases}</b></p>
-                      <p>Deaths: <b>${deaths}</b></p>
-                      <p>Mortality Rate: <b>${mortalityRate}%</b></p>
-                      ${countryFlagHTML}`;
+      const provinceHTML =
+        province !== "null" ? `<p>Province: <b>${province}</b></p>` : "";
 
-            // Ensure that if the map is zoomed out such that multiple
-            // copies of the feature are visible, the popup appears
-            // over the copy being pointed to.
-            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-              coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-            }
+      const mortalityRate = ((deaths / cases) * 100).toFixed(2);
 
-            popup.setLngLat(coordinates).setHTML(HTML).addTo(map);
-          }
-        });
+      const countryFlagHTML = Boolean(countryISO)
+        ? `<img src="https://www.countryflags.io/${countryISO}/flat/64.png"></img>`
+        : "";
 
-        // Mouse leave event
-        map.on("mouseleave", "circles", function () {
-          // Reset the last Id
-          lastId = undefined;
-          map.getCanvas().style.cursor = "";
-          popup.remove();
-        });
-      });
+      const HTML = `<p>Country: <b>${country}</b></p>
+                ${provinceHTML}
+                <p>Cases: <b>${cases}</b></p>
+                <p>Deaths: <b>${deaths}</b></p>
+                <p>Mortality Rate: <b>${mortalityRate}%</b></p>
+                ${countryFlagHTML}`;
+
+      // Ensure that if the map is zoomed out such that multiple
+      // copies of the feature are visible, the popup appears
+      // over the copy being pointed to.
+      while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+      }
+
+      popup.setLngLat(coordinates).setHTML(HTML).addTo(map);
     }
+  });
+
+  // Mouse leave event
+  map.on("mouseleave", "circles", function () {
+    // Reset the last Id
+    lastId = undefined;
+    map.getCanvas().style.cursor = "";
+    popup.remove();
+  });
+});
+     }
+
+      
+    } 
   }, [data]);
 
   return (

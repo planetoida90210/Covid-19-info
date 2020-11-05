@@ -1,5 +1,5 @@
 import React from "react";
-
+import Map from './Map'
 const ActiveCountry = ({ choosenCountry }) => {
   const elo = { ...choosenCountry };
   const {
@@ -19,10 +19,10 @@ const ActiveCountry = ({ choosenCountry }) => {
   return (
     <div className='active-country-details-data'>
       <div className='single-country-details-data-name'>
-        <h5>{country}</h5>
-        <img src={countryInfo.flag} alt='country flag' />
+        {/* <h5>{country}</h5>
+        <img src={countryInfo.flag} alt='country flag' /> */}
       </div>
-      <div className='single-country-details-map'>mapa</div>
+      <div className='single-country-details-map'><Map activeCountry={countryInfo.iso3}/></div>
       <div className='single-country-detail-table'>
         <p className='detail-table-name'>łącznie</p>
         <p className='detail-table-data'>{cases}</p>
