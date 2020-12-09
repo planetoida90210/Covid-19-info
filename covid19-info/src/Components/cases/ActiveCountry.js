@@ -19,8 +19,6 @@ const ActiveCountry = ({ choosenCountry }) => {
   return (
     <div className='active-country-details-data'>
       <div className='single-country-details-data-name'>
-        {/* <h5>{country}</h5>
-        <img src={countryInfo.flag} alt='country flag' /> */}
       </div>
       <div className='single-country-details-map'><Map activeCountry={countryInfo.iso3}/></div>
       <div className='single-country-detail-table'>
@@ -34,6 +32,8 @@ const ActiveCountry = ({ choosenCountry }) => {
         <p className='detail-table-data'>{recovered}</p>
         <p className='detail-table-name'>dzisiaj</p>
         <p className='detail-table-data'>{todayRecovered}</p>
+        <p className='detail-table-name'>testów</p>
+        <p className='detail-table-data'>{tests}</p>
       </div>
     </div>
   );

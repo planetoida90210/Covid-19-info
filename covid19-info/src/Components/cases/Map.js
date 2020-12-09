@@ -38,37 +38,35 @@ const Map = ({activeCountry}) => {
     if (data) {
       const map = new mapboxgl.Map({
         container: mapboxElRef.current,
-        style: "mapbox://styles/planetoida90210/ckdeleaer56nu1io8blg36t0l",
+        style: 'mapbox://styles/mapbox/light-v9',
         center: [20, 51],
         zoom: 1,
       });
-      
-     if(activeCountry){
-      map.on('load', function() {
-        //On map load, we want to do some stuff
-        map.addLayer({
-          //here we are adding a layer containing the tileset we just uploaded
-          id: 'countries', //this is the name of our layer, which we will need later
-          source: {
-            type: 'vector',
-            url: 'mapbox://styles/planetoida90210/ckdeleaer56nu1io8blg36t0l', // <--- Add the Map ID you copied here
-          },
-          'source-layer': 'ne_10m_admin_0_countries-dqlykg', // <--- Add the source layer name you copied here
-          type: 'fill',
-          paint: {
-            'fill-color': '#52489C', //this is the color you want your tileset to have (I used a nice purple color)
-            'fill-outline-color': '#F2F2F2', //this helps us distinguish individual countries a bit better by giving them an outline
-          },
-        });
-      
-        map.setFilter(
-          'countries',
-          ['in', 'ADM0_A3_IS'].concat(['USA', 'AUS', 'NGA']),
-        ); // This line lets us filter by country codes.
-        })      
-   
-     } else {
-// Call this method when the map is loaded
+      if(activeCountry){
+        map.on('load', function() {
+          //On map load, we want to do some stuff
+          map.addLayer({
+            //here we are adding a layer containing the tileset we just uploaded
+            id: 'countries', //this is the name of our layer, which we will need later
+            source: {
+              type: 'vector',
+              url: 'mapbox://byfrost-articles.74qv0xp0'
+            },
+            'source-layer': 'ne_10m_admin_0_countries-76t9ly', // <--- Add the source layer name you copied here
+            type: 'fill',
+            paint: {
+              'fill-color': '#52489C', //this is the color you want your tileset to have (I used a nice purple color)
+              'fill-outline-color': '#F2F2F2', //this helps us distinguish individual countries a bit better by giving them an outline
+            },
+          });
+        
+          map.setFilter(
+            'countries',
+            ['in', 'ADM0_A3_IS'].concat([activeCountry]),
+          ); // This line lets us filter by country codes.
+          })   
+      } else { 
+        // Call this method when the map is loaded
 
 map.once("load", function () {
   // Add our SOURCE
@@ -166,6 +164,9 @@ map.once("load", function () {
      }
 
       
+    
+      
+         
     } 
   }, [data]);
 
