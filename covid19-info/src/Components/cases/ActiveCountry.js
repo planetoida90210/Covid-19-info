@@ -16,11 +16,12 @@ const ActiveCountry = ({ choosenCountry }) => {
     updated,
     countryInfo,
   } = elo[0];
+  const mapCenter = [countryInfo.long, countryInfo.lat]
   return (
     <div className='active-country-details-data'>
       <div className='single-country-details-data-name'>
       </div>
-      <div className='single-country-details-map'><Map activeCountry={countryInfo.iso3}/></div>
+      <div className='single-country-details-map'><Map activeCountry={countryInfo.iso3} mapCenter={mapCenter}/></div>
       <div className='single-country-detail-table'>
         <p className='detail-table-name'>łącznie</p>
         <p className='detail-table-data'>{cases}</p>

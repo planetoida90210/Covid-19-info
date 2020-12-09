@@ -6,7 +6,8 @@ import lookup from "country-code-lookup";
 import "mapbox-gl/dist/mapbox-gl.css";
 mapboxgl.accessToken =
   "pk.eyJ1IjoicGxhbmV0b2lkYTkwMjEwIiwiYSI6ImNrZGQyeGU4ZzE3d2kzMXQ5aXQydGRycDcifQ.iDPOx8aTyZDvXtcEGQjX2Q";
-const Map = ({activeCountry}) => {
+const Map = ({activeCountry, mapCenter}) => {
+  console.log(mapCenter);
   const mapboxElRef = useRef(null);
   const fetcher = (url) =>
     fetch(url)
@@ -39,8 +40,9 @@ const Map = ({activeCountry}) => {
       const map = new mapboxgl.Map({
         container: mapboxElRef.current,
         style: 'mapbox://styles/mapbox/light-v9',
-        center: [20, 51],
-        zoom: 1,
+        center: activeCountry === undefined ? [20, 51] : mapCenter,
+        zoom: activeCountry === undefined ? 1 : 3,
+    
       });
       if(activeCountry){
         map.on('load', function() {
@@ -62,7 +64,7 @@ const Map = ({activeCountry}) => {
         
           map.setFilter(
             'countries',
-            ['in', 'ADM0_A3_IS'].concat([activeCountry]),
+            ['in', 'ADM0_A3_IS'].concat([activeCountry])
           ); // This line lets us filter by country codes.
           })   
       } else { 
